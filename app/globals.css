@@ -2492,24 +2492,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 /* Inline Style */
 
-			input[type="date"]:before{
-color:rgba(53, 53, 53, 0.44);
-content:attr(placeholder);
-}
-
-input[type="date"].full:before {
-color:black;
-content:""!important;
-}
-
-input[type="time"]:before{
-color:rgba(53, 53, 53, 0.44);
-content:attr(placeholder);
-}
-
+/* Neutralisation des pseudo-éléments obsolètes sur date et heure */
+input[type="date"]:before,
+input[type="date"].full:before,
+input[type="time"]:before,
 input[type="time"].full:before {
-color:black;
-content:""!important;
+    content: none !important;
+    display: none !important;
 }		
 
 /* Source: post-72.css */
@@ -2537,3 +2526,218 @@ content:""!important;
 h1.elementor-heading-title {
     display: block !important;
 }
+
+/* ==========================================================================
+   Netlify Forms - Libellés Flottants Intérieurs & Design Moderne
+   ========================================================================== */
+.netlify-floating-group {
+  position: relative !important;
+  width: 100% !important;
+  margin-bottom: 0 !important;
+}
+.netlify-input-icon {
+  position: absolute !important;
+  left: 0.9rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  pointer-events: none !important;
+  color: #64748b !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 2 !important;
+}
+.netlify-input-icon.icon-top {
+  top: 1.15rem !important;
+  transform: none !important;
+}
+.netlify-floating-input {
+  width: 100% !important;
+  height: 3.4rem !important;
+  padding-left: 2.85rem !important;
+  padding-right: 1rem !important;
+  padding-top: 1.15rem !important;
+  padding-bottom: 0.25rem !important;
+  background-color: #ffffff !important;
+  border: 1.5px solid #d1d5db !important;
+  border-radius: 8px !important;
+  font-family: inherit !important;
+  font-size: 0.95rem !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  box-sizing: border-box !important;
+  color: #1e293b !important;
+}
+.netlify-floating-input:focus {
+  border-color: #000000 !important;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08) !important;
+}
+.netlify-floating-textarea {
+  height: auto !important;
+  min-height: 5.5rem !important;
+  resize: vertical !important;
+}
+
+/* Placeholder d'exemple : masqué au repos, affiché dès que le champ est focus */
+.netlify-floating-input::placeholder {
+  color: transparent !important;
+  transition: color 0.2s ease !important;
+}
+.netlify-floating-input:focus::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Libellé au repos (au centre du champ) */
+.netlify-floating-label {
+  position: absolute !important;
+  left: 2.85rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  font-family: inherit !important;
+  font-size: 0.92rem !important;
+  color: #64748b !important;
+  pointer-events: none !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: transparent !important;
+  white-space: nowrap !important;
+  z-index: 2 !important;
+}
+.netlify-floating-textarea ~ .netlify-floating-label {
+  top: 1.15rem !important;
+  transform: none !important;
+}
+
+/* LE LIBELLÉ MONTE TOUJOURS À L'INTÉRIEUR DU CHAMP (JAMAIS SUR LA BORDURE) */
+.netlify-floating-input:not([type="date"]):not([type="time"]):focus ~ .netlify-floating-label,
+.netlify-floating-input:not([type="date"]):not([type="time"]):not(:placeholder-shown) ~ .netlify-floating-label,
+.netlify-floating-input:not([type="date"]):not([type="time"]):-webkit-autofill ~ .netlify-floating-label,
+.netlify-floating-input:not([type="date"]):not([type="time"]).has-value ~ .netlify-floating-label {
+  top: 0.35rem !important;
+  left: 2.85rem !important;
+  transform: none !important;
+  font-size: 0.68rem !important;
+  font-weight: 600 !important;
+  color: #000000 !important;
+  background: transparent !important;
+}
+
+/* Cas strict des champs Date & Heure : le libellé monte UNIQUEMENT au focus ou si une valeur est choisie */
+.netlify-floating-input[type="date"]:not(:focus):not(.has-value) ~ .netlify-floating-label,
+.netlify-floating-input[type="time"]:not(:focus):not(.has-value) ~ .netlify-floating-label {
+  top: 50% !important;
+  left: 2.85rem !important;
+  transform: translateY(-50%) !important;
+  font-size: 0.92rem !important;
+  font-weight: normal !important;
+  color: #64748b !important;
+}
+
+.netlify-floating-input[type="date"]:focus ~ .netlify-floating-label,
+.netlify-floating-input[type="date"].has-value ~ .netlify-floating-label,
+.netlify-floating-input[type="time"]:focus ~ .netlify-floating-label,
+.netlify-floating-input[type="time"].has-value ~ .netlify-floating-label {
+  top: 0.35rem !important;
+  left: 2.85rem !important;
+  transform: none !important;
+  font-size: 0.68rem !important;
+  font-weight: 600 !important;
+  color: #000000 !important;
+  background: transparent !important;
+}
+
+/* Masquer le texte interne gris natif du navigateur (jj/mm/aaaa ou --:--) au repos */
+.netlify-floating-input[type="date"]:not(:focus):not(.has-value)::-webkit-datetime-edit,
+.netlify-floating-input[type="time"]:not(:focus):not(.has-value)::-webkit-datetime-edit {
+  color: transparent !important;
+  opacity: 0 !important;
+}
+
+.netlify-floating-input[type="date"]:focus::-webkit-datetime-edit,
+.netlify-floating-input[type="date"].has-value::-webkit-datetime-edit,
+.netlify-floating-input[type="time"]:focus::-webkit-datetime-edit,
+.netlify-floating-input[type="time"].has-value::-webkit-datetime-edit {
+  color: #1e293b !important;
+  opacity: 1 !important;
+}
+
+/* Listes déroulantes (<select>) */
+.netlify-floating-select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  padding-right: 2.5rem !important;
+  cursor: pointer !important;
+}
+
+.netlify-floating-select.placeholder-selected {
+  color: #94a3b8 !important;
+}
+.netlify-floating-select:not(.placeholder-selected) {
+  color: #1e293b !important;
+}
+
+/* Options dans le menu déroulant */
+.netlify-floating-select option {
+  color: #1e293b !important;
+  background-color: #ffffff !important;
+}
+.netlify-floating-select option[disabled],
+.netlify-floating-select option:disabled {
+  color: #94a3b8 !important;
+}
+
+.netlify-floating-label.select-label {
+  top: 0.35rem !important;
+  left: 2.85rem !important;
+  transform: none !important;
+  font-size: 0.68rem !important;
+  font-weight: 600 !important;
+  color: #64748b !important;
+  background: transparent !important;
+}
+
+.netlify-floating-select:focus ~ .netlify-floating-label.select-label {
+  color: #000000 !important;
+}
+
+.netlify-select-chevron {
+  position: absolute !important;
+  right: 1rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  pointer-events: none !important;
+  color: #94a3b8 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Date & Time natifs : curseur pointer et clic direct */
+.netlify-floating-group.date-time-group {
+  cursor: pointer !important;
+}
+.netlify-floating-input[type="date"],
+.netlify-floating-input[type="time"] {
+  cursor: pointer !important;
+}
+.netlify-floating-input[type="date"]::-webkit-calendar-picker-indicator,
+.netlify-floating-input[type="time"]::-webkit-calendar-picker-indicator {
+  cursor: pointer !important;
+  opacity: 0.6 !important;
+  padding: 4px !important;
+}
+.netlify-floating-input[type="date"]::-webkit-calendar-picker-indicator:hover,
+.netlify-floating-input[type="time"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1 !important;
+}
+
+.e-form__buttons .elementor-button {
+  cursor: pointer !important;
+  width: 100% !important;
+  transition: opacity 0.2s ease, filter 0.2s ease !important;
+}
+.e-form__buttons .elementor-button:disabled {
+  opacity: 0.7 !important;
+  cursor: not-allowed !important;
+}
+

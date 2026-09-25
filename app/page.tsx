@@ -1,14 +1,17 @@
-"use client";
-
-import React, { useState } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import NetlifyQuoteForm from "@/components/NetlifyQuoteForm";
+import MentionsLegalesPopup from "@/components/MentionsLegalesPopup";
+import JsonLd from "@/components/JsonLd";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata("home", "fr", "");
 
 export default function HomePage() {
-  const [popupOpen, setPopupOpen] = useState(false);
-
   return (
     <>
+      <JsonLd lang="fr" />
       <a className="skip-link screen-reader-text" href="#content">
         Aller au contenu
       </a>
@@ -160,69 +163,7 @@ export default function HomePage() {
 </div>
 <div className="elementor-element elementor-element-4396657 elementor-button-align-stretch elementor-widget elementor-widget-form" data-e-type="widget" data-element_type="widget" data-id="4396657" data-settings='{"step_next_label":"Next","step_previous_label":"Previous","step_type":"number","button_width":"100","step_icon_shape":"circle"}' data-widget_type="form.default">
 <div className="elementor-widget-container">
-<form aria-label="Formulaire VTC" className="elementor-form" method="post" name="Formulaire VTC">
-<input name="post_id" type="hidden" defaultValue="69"/>
-<input name="form_id" type="hidden" defaultValue="4396657"/>
-<input name="referer_title" type="hidden" defaultValue=""/>
-<input name="queried_id" type="hidden" defaultValue="69"/>
-<div className="elementor-form-fields-wrapper elementor-labels-">
-<div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_bc6e083 elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_bc6e083">
-								Adresse de départ							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" id="form-field-field_bc6e083" name="form_fields[field_bc6e083]" placeholder="Adresse de départ*" required size={1} type="text"/>
-</div>
-<div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_ead9d7d elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_ead9d7d">
-								Adresse d'arrivée							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" id="form-field-field_ead9d7d" name="form_fields[field_ead9d7d]" placeholder="Adresse d'arrivée*" required size={1} type="text"/>
-</div>
-<div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_a81b1a0 elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_a81b1a0">
-								Date							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" id="form-field-field_a81b1a0" name="form_fields[field_a81b1a0]" placeholder="Date*" required size={1} type="text"/>
-</div>
-<div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_0d7435c elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_0d7435c">
-								Heure							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" id="form-field-field_0d7435c" name="form_fields[field_0d7435c]" placeholder="Heure*" required size={1} type="text"/>
-</div>
-<div className="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-field_91eae11 elementor-col-100 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_91eae11">
-								Voiture							</label>
-<div className="elementor-field elementor-select-wrapper remove-before">
-<div className="select-caret-down-wrapper">
-<svg aria-hidden="true" className="e-font-icon-svg e-eicon-caret-down" viewBox="0 0 571.4 571.4" xmlns="http://www.w3.org/2000/svg"><path d="M571 393Q571 407 561 418L311 668Q300 679 286 679T261 668L11 418Q0 407 0 393T11 368 36 357H536Q550 357 561 368T571 393Z"></path></svg> </div>
-<select className="elementor-field-textual elementor-size-sm" id="form-field-field_91eae11" name="form_fields[field_91eae11]" required>
-<option value="Berline (3 pax)">Berline (3 pax)</option>
-<option value="Van (7 pax)">Van (7 pax)</option>
-</select>
-</div>
-</div>
-<div className="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-email">
-								Email							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" id="form-field-email" name="form_fields[email]" placeholder="Votre email*" required size={1} type="email"/>
-</div>
-<div className="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_b57c008 elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_b57c008">
-								Téléphone							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" id="form-field-field_b57c008" name="form_fields[field_b57c008]" pattern="[0-9()#&amp;+*-=.]+" placeholder="Votre téléphone*" required size={1} title="Seuls les caractères de numéros de téléphone (#, -, *, etc.) sont acceptés." type="tel"/>
-</div>
-<div className="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-message">
-								Message							</label>
-<textarea className="elementor-field-textual elementor-field elementor-size-sm" id="form-field-message" name="form_fields[message]" placeholder="Informations additionnelles" rows={3}></textarea> </div>
-<div className="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_a08cbc5 elementor-col-100 recaptcha_v3-bottomright">
-<div className="elementor-field" id="form-field-field_a08cbc5"><div className="elementor-g-recaptcha" data-action="Form" data-badge="bottomright" data-sitekey="6LfYYU4qAAAAABSsQ1BS5_cJb--Ike_Z-D6TuTvz" data-size="invisible" data-type="v3"></div></div> </div>
-<div className="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
-<button className="elementor-button elementor-size-sm" type="submit">
-<span className="elementor-button-content-wrapper">
-<span className="elementor-button-text">Je reçois mon devis gratuit</span>
-</span>
-</button>
-</div>
-</div>
-</form>
+<NetlifyQuoteForm lang="fr" />
 </div>
 </div>
 <div className="elementor-element elementor-element-707a723 elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="707a723" data-widget_type="text-editor.default">
@@ -1261,46 +1202,7 @@ export default function HomePage() {
 </footer>
 
       {/* POPUP MENTIONS LEGALES */}
-      <div 
-        className={`elementor elementor-1495 elementor-location-popup ${popupOpen ? 'dialog-show' : ''}`}
-        style={{ display: popupOpen ? 'block' : 'none', position: 'fixed', inset: 0, zIndex: 99999, background: 'rgba(0,0,0,0.7)', overflowY: 'auto', padding: '20px' }}
-        onClick={() => setPopupOpen(false)}
-      >
-        <div 
-          className="dialog-widget-content"
-          style={{ maxWidth: '800px', margin: '40px auto', background: '#fff', borderRadius: '12px', padding: '30px', position: 'relative' }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <button 
-            type="button" 
-            aria-label="Fermer" 
-            onClick={() => setPopupOpen(false)}
-            style={{ position: 'absolute', top: '15px', right: '15px', background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', color: '#111' }}
-          >
-            &times;
-          </button>
-          <div className="popup-body-content">
-            <div className="elementor elementor-1495 elementor-location-popup" data-elementor-id="1495" data-elementor-post-type="elementor_library" data-elementor-settings='{"entrance_animation":"fadeIn","exit_animation":"fadeIn","open_selector":"a[href=\"#mentions-popup\"]","entrance_animation_duration":{"unit":"px","size":1.2,"sizes":[]},"a11y_navigation":"yes","triggers":[],"timing":[]}' data-elementor-type="popup">
-<div className="elementor-element elementor-element-2eeb15b8 e-flex e-con-boxed e-con e-parent" data-e-type="container" data-element_type="container" data-id="2eeb15b8" data-settings='{"motion_fx_motion_fx_scrolling":"yes","motion_fx_devices":["desktop","tablet","mobile"]}'>
-<div className="e-con-inner">
-<div className="elementor-element elementor-element-0eb8598 e-flex e-con-boxed e-con e-child" data-e-type="container" data-element_type="container" data-id="0eb8598">
-<div className="e-con-inner">
-<div className="elementor-element elementor-element-f05dba5 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="f05dba5" data-widget_type="heading.default">
-<div className="elementor-widget-container">
-<h1 className="elementor-heading-title elementor-size-default">Mentions légales</h1> </div>
-</div>
-<div className="elementor-element elementor-element-6120168 elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="6120168" data-widget_type="text-editor.default">
-<div className="elementor-widget-container">
-<h2>Éditeur de site</h2><p><b>Société : </b>Driver Line<b><br/></b><b>Forme juridique</b> :<br/><b>Numéro de SIRET</b>:<span id="appCallback_ext-click-019596716483976406"> </span><br/><b>Numéro TVA Intracommunautaire :</b><br/><b>Numéro de RCS : </b><br/><b>Capital social : </b><br/><b>Responsable éditorial :</b><br/><b>Adresse :</b><br/><b>Téléphone : </b><br/><b>Email : </b><br/><b>Sites Web : </b></p><p> </p><h2>Hébergement</h2><p className="elementor-icon-box-description"><b>Hébergeur :</b> Siteground (Paris Data Center)<br/><b>Site Web : </b>fr.siteground.com</p><p> </p><section data-element_type="section" data-id="518cd64"><div data-element_type="column" data-id="f6871b2"><div data-element_type="widget" data-id="8cd7485" data-widget_type="icon-box.default"><div><div><div><h2>Politique de confidentialité</h2><p>La réglementation applicable aux données personnelles évolue avec l’entrée en vigueur, le 25 mai 2018, du Règlement général sur la protection des données (RGPD), adopté par le Parlement européen.</p><p>C’est l’occasion pour driverline.fr d’appliquer ses engagements en matière de confidentialité des données personnelles et de respect des choix s’agissant de leur utilisation.</p><p>La présente politique de confidentialité vous informe de la manière dont nous recueillons et traitons vos données personnelles. Nous vous invitons à la lire attentivement.</p><p>Nous n’utilisons vos données personnelles que dans les cas prévus par la règlementation en vigueur :</p><ul><li>L’exécution d’un contrat que nous avons conclu avec vous, et/ou</li><li>Le respect d’une obligation légale, et/ou</li><li>Votre consentement à l’utilisation de vos données, et/ou</li><li>L ’existence d’un intérêt légitime à utiliser vos données.</li></ul><div> </div><p>En tout état de cause, vos droits individuels primeront toujours sur notre intérêt légitime, et nous n’utiliserons jamais vos données à des fins commerciales contre votre volonté.</p><p> </p></div></div></div></div><div data-element_type="widget" data-id="879c529" data-widget_type="icon-box.default"><div><div><div><h4>RGPD : Droit d’accès, de rectification et d’opposition</h4><p>Conformément au RGPD en vigueur, les utilisateurs du site internet https://techni-b.fr/ disposent des droits suivants :</p><ul><li>Droit d’accès (article 15 RGPD) et de rectification (article 16 RGPD), de mise à jour, de complétude des données des utilisateurs</li><li>Droit de verrouillage ou d’effacement des données des Utilisateurs à caractère personnel (article 17 du RGPD), lorsqu’elles sont inexactes, incomplètes, équivoques, périmées, ou dont la collecte, l’utilisation, la communication ou la conservation est interdite</li><li>Droit de retirer à tout moment un consentement (article 13-2c RGPD)</li><li>Droit à la limitation du traitement des données des utilisateurs (article 18 RGPD)</li><li>Droit d’opposition au traitement des données des utilisateurs (article 21 RGPD)</li><li>Droit à la portabilité des données que les utilisateurs auront fournies, lorsque ces données font l’objet de traitements automatisés fondés sur leur consentement ou sur un contrat (article 20 RGPD)</li></ul><p> </p><p>Si l’utilisateur souhaite avoir plus de détails et savoir comment Drover Line utilise les données à caractère personnel ou encore veut demander à les rectifier ou s’oppose à leur traitement, l’utilisateur peut contacter Driver Line via le formulaire de contact.</p></div></div></div></div></div></section> </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-          </div>
-        </div>
-      </div>
+      <MentionsLegalesPopup />
 
       {/* SÉLECTEUR DE LANGUE FLOTTANT */}
       <LanguageSwitcher currentLang="fr" />

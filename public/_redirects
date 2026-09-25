@@ -1,0 +1,21 @@
+/devis-envoye /merci/ 301!
+/devis-envoye/ /merci/ 301!
+/en/devis-envoye /en/merci/ 301!
+/en/devis-envoye/ /en/merci/ 301!
+
+/driverline-fr.preview-domain.com/mentions-legales/* /mentions-legales/ 301!
+/driverline-fr.preview-domain.com/mentions-legales /mentions-legales/ 301!
+/driverline-fr.preview-domain.com/* / 301!
+/driverline-fr.preview-domain.com / 301!
+
+/hello-world/* / 301!
+/hello-world / 301!
+/category/* / 301!
+/author/* / 301!
+/tag/* / 301!
+/feed/* / 301!
+/feed / 301!
+/comments/feed/* / 301!
+/comments/feed / 301!
+/wp-login.php / 301!
+/wp-admin/* / 301!

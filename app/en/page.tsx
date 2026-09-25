@@ -1,16 +1,16 @@
-"use client";
-
-import React, { useEffect } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import NetlifyQuoteForm from "@/components/NetlifyQuoteForm";
+import JsonLd from "@/components/JsonLd";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata("home", "en", "");
 
 export default function EnPage() {
-  useEffect(() => {
-    document.title = "Driver Line – Private VTC driver in Toulouse";
-  }, []);
-
   return (
     <div className="home wp-singular page-template page-template-elementor_header_footer page page-id-69 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-hello-theme-child-master translatepress-en_US hello-elementor-default elementor-default elementor-template-full-width elementor-kit-11 elementor-page elementor-page-69">
+      <JsonLd lang="en" />
       <a className="skip-link screen-reader-text" href="#content">
         Aller au contenu
       </a>
@@ -162,69 +162,7 @@ export default function EnPage() {
 </div>
 <div className="elementor-element elementor-element-4396657 elementor-button-align-stretch elementor-widget elementor-widget-form" data-e-type="widget" data-element_type="widget" data-id="4396657" data-settings='{"step_next_label":"Next","step_previous_label":"Previous","step_type":"number","button_width":"100","step_icon_shape":"circle"}' data-widget_type="form.default">
 <div className="elementor-widget-container">
-<form action="" aria-label="Formulaire VTC" className="elementor-form" method="post" name="Formulaire VTC">
-<input name="post_id" type="hidden" defaultValue="69"/>
-<input name="form_id" type="hidden" defaultValue="4396657"/>
-<input name="referer_title" type="hidden" defaultValue=""/>
-<input name="queried_id" type="hidden" defaultValue="69"/>
-<div className="elementor-form-fields-wrapper elementor-labels-">
-<div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_bc6e083 elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_bc6e083">
-								Adresse de départ							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" id="form-field-field_bc6e083" name="form_fields[field_bc6e083]" placeholder="Pickup address*" required size={1} type="text"/>
-</div>
-<div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_ead9d7d elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_ead9d7d">
-								Adresse d'arrivée							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" id="form-field-field_ead9d7d" name="form_fields[field_ead9d7d]" placeholder="Dropoff address*" required size={1} type="text"/>
-</div>
-<div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_a81b1a0 elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_a81b1a0">
-								Date							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" id="form-field-field_a81b1a0" name="form_fields[field_a81b1a0]" placeholder="Date*" required size={1} type="text"/>
-</div>
-<div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_0d7435c elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_0d7435c">
-								Heure							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" id="form-field-field_0d7435c" name="form_fields[field_0d7435c]" placeholder="Time*" required size={1} type="text"/>
-</div>
-<div className="elementor-field-type-select elementor-field-group elementor-column elementor-field-group-field_91eae11 elementor-col-100 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_91eae11">
-								Car							</label>
-<div className="elementor-field elementor-select-wrapper remove-before">
-<div className="select-caret-down-wrapper">
-<svg aria-hidden="true" className="e-font-icon-svg e-eicon-caret-down" viewBox="0 0 571.4 571.4" xmlns="http://www.w3.org/2000/svg"><path d="M571 393Q571 407 561 418L311 668Q300 679 286 679T261 668L11 418Q0 407 0 393T11 368 36 357H536Q550 357 561 368T571 393Z"></path></svg> </div>
-<select className="elementor-field-textual elementor-size-sm" id="form-field-field_91eae11" name="form_fields[field_91eae11]" required>
-<option value="Berline (3 pax)">Berline (3 pax)</option>
-<option value="Van (7 pax)">Van (7 pax)</option>
-</select>
-</div>
-</div>
-<div className="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-email">
-								Email							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" id="form-field-email" name="form_fields[email]" placeholder="Your email*" required size={1} type="email"/>
-</div>
-<div className="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_b57c008 elementor-col-50 elementor-field-required">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-field_b57c008">
-								Phone							</label>
-<input className="elementor-field elementor-size-sm elementor-field-textual" data-no-translation-title="" id="form-field-field_b57c008" name="form_fields[field_b57c008]" pattern="[0-9()#&amp;+*-=.]+" placeholder="Your phone*" required size={1} title="Only numbers and phone characters (#, -, *, etc) are accepted." type="tel"/>
-</div>
-<div className="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-message elementor-col-100">
-<label className="elementor-field-label elementor-screen-only" htmlFor="form-field-message">
-								Message							</label>
-<textarea className="elementor-field-textual elementor-field elementor-size-sm" id="form-field-message" name="form_fields[message]" placeholder="Informations additionnelles" rows={3}></textarea> </div>
-<div className="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_a08cbc5 elementor-col-100 recaptcha_v3-bottomright">
-<div className="elementor-field" id="form-field-field_a08cbc5"><div className="elementor-g-recaptcha" data-action="Form" data-badge="bottomright" data-sitekey="6LfYYU4qAAAAABSsQ1BS5_cJb--Ike_Z-D6TuTvz" data-size="invisible" data-type="v3"></div></div> </div>
-<div className="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
-<button className="elementor-button elementor-size-sm" type="submit">
-<span className="elementor-button-content-wrapper">
-<span className="elementor-button-text">I receive my free quote</span>
-</span>
-</button>
-</div>
-</div>
-<input name="trp-form-language" type="hidden" defaultValue="en"/></form>
+<NetlifyQuoteForm lang="en" />
 </div>
 </div>
 <div className="elementor-element elementor-element-707a723 elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="707a723" data-widget_type="text-editor.default">

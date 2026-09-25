@@ -1,14 +1,11 @@
-"use client";
-
-import React, { useEffect } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata("mentions-legales", "fr", "mentions-legales");
 
 export default function MentionsLegalesPage() {
-  useEffect(() => {
-    document.title = "Mentions légales – Driver Line – Chauffeur privé VTC à Toulouse";
-  }, []);
-
   return (
     <div className="privacy-policy wp-singular page-template page-template-elementor_header_footer page page-id-75 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-hello-theme-child-master translatepress-fr_FR hello-elementor-default elementor-default elementor-template-full-width elementor-kit-11 elementor-page elementor-page-75">
       <a className="skip-link screen-reader-text" href="#content">

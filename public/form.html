@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Netlify Forms - Driver Line</title>
+</head>
+<body>
+  <!-- Formulaire de devis (FR) -->
+  <form name="devis" netlify netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="devis" />
+    <input type="hidden" name="subject" value="Nouvelle demande de devis" />
+    <input type="text" name="bot-field" />
+    <input type="text" name="adresse_depart" />
+    <input type="text" name="adresse_arrivee" />
+    <input type="date" name="date" />
+    <input type="time" name="heure" />
+    <select name="vehicule">
+      <option value="">— Veuillez choisir un véhicule —</option>
+      <option value="Berline (3 pax)">Berline (3 pax)</option>
+      <option value="Van (7 pax)">Van (7 pax)</option>
+    </select>
+    <input type="email" name="email" />
+    <input type="tel" name="telephone" />
+    <textarea name="message"></textarea>
+  </form>
+
+  <!-- Formulaire de devis (EN) -->
+  <form name="devis-en" netlify netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="devis-en" />
+    <input type="hidden" name="subject" value="Nouvelle demande de devis" />
+    <input type="text" name="bot-field" />
+    <input type="text" name="pickup_address" />
+    <input type="text" name="dropoff_address" />
+    <input type="date" name="date" />
+    <input type="time" name="time" />
+    <select name="vehicle">
+      <option value="">— Please choose a vehicle —</option>
+      <option value="Berline (3 pax)">Berline (3 pax)</option>
+      <option value="Van (7 pax)">Van (7 pax)</option>
+    </select>
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <textarea name="message"></textarea>
+  </form>
+</body>
+</html>

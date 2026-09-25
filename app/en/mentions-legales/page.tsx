@@ -1,14 +1,11 @@
-"use client";
-
-import React, { useEffect } from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata("mentions-legales", "en", "mentions-legales");
 
 export default function EnMentionsLegalesPage() {
-  useEffect(() => {
-    document.title = "Legal notices – Driver Line – Private VTC driver in Toulouse";
-  }, []);
-
   return (
     <div className="privacy-policy wp-singular page-template page-template-elementor_header_footer page page-id-75 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-hello-theme-child-master translatepress-en_US hello-elementor-default elementor-default elementor-template-full-width elementor-kit-11 elementor-page elementor-page-75">
       <a className="skip-link screen-reader-text" href="#content">
