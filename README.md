@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Driver Line
 
-## Getting Started
-
-First, run the development server:
+Site Next.js (chauffeur privé VTC à Toulouse), déployé sur Netlify. Le français est à la racine (`/`), l'anglais sous `/en/`.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev          # développement
+npm run build        # build de production (vérifie d'abord les traductions)
+npm run i18n:check   # vérifie seulement les traductions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Organisation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Quoi | Où |
+|---|---|
+| Design (couleurs, polices, composants) | `app/globals.css` |
+| Polices (Inter, Instrument Serif via next/font) | `lib/fonts.ts` |
+| Coordonnées, ancres, icônes, véhicules (tout ce qui ne se traduit pas) | `lib/site.ts` |
+| Accueil, mentions légales, merci, 404 | `components/HomePage.tsx`, `LegalPage.tsx`, `ThanksPage.tsx`, `NotFoundPage.tsx` |
+| Données structurées (LocalBusiness, note Google, FAQ) | `components/JsonLd.tsx` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Variantes en test
 
-## Learn More
+Dans `lib/site.ts`, deux réglages permettent de revenir à la version précédente sans rien supprimer :
 
-To learn more about Next.js, take a look at the following resources:
+| Réglage | Valeurs |
+|---|---|
+| `HERO_IMAGE` | `"aerien"` (vue aérienne de Toulouse), `"toulouse"` (Pont Neuf et Garonne) ou `"chauffeur"` (photo d'origine) |
+| `SERVICES_LAYOUT` | `"cards"` (4 services en lignes illustrées, images alternées) ou `"classic"` (6 services avec icônes) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Les textes des deux versions des services sont dans `messages/*.json` (`services.cards` et `services.classic`). Les photos ajoutées viennent de Wikimedia Commons. Toutes sont en CC0, sauf la vue aérienne (CC BY 3.0, créditée dans les mentions légales : à retirer du crédit si on change d'image).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Traductions
 
-## Deploy on Vercel
+| Quoi | Où |
+|---|---|
+| Langues, URL traduites, métadonnées SEO | `LOCALES`, `DEFAULT_LANG` et `SLUGS` dans `lib/seo.ts` |
+| Textes de l'interface et des pages | `messages/<langue>.json` |
+| Textes juridiques | `content/legal/<langue>.ts` |
+| Route unique de toutes les pages | `app/[lang]/[[...slug]]/page.tsx` |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Le français est servi à la racine par une réécriture interne (`next.config.ts`), et `/fr/…` redirige vers la racine.
+- Les URL anglaises sont traduites : `/en/legal-notice/`, `/en/thank-you/`. Les anciennes (`/en/mentions-legales/`, `/en/merci/`) redirigent en 301.
+- `fr.json` est la référence. Chaque autre langue doit avoir exactement les mêmes clés, sinon le build est bloqué (`npm run i18n:check`).
+- Les liens internes passent toujours par `pagePath("mentions-legales", lang)`, jamais par une URL écrite en dur.
+- Formulaire de devis : un seul formulaire Netlify (`devis`) pour toutes les langues. Les champs sont en français, avec un champ caché `langue`, et l'objet de l'e-mail indique la langue si ce n'est pas le français. Les noms de champs doivent rester identiques à `public/form.html`. L'anti-spam est un champ piège `bot-field`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Ajouter une langue
+
+1. `lib/seo.ts` : ajouter la langue dans `LOCALES` et ses URL dans `SLUGS`.
+2. Créer `messages/<code>.json` (traduction de `fr.json`) et l'ajouter dans `lib/i18n.ts`.
+3. Créer `content/legal/<code>.ts` et l'ajouter dans `content/legal/index.ts`.
+
+Les pages, le sitemap, les hreflang, le sélecteur de langue et la réécriture d'URL suivent automatiquement.
+
+## SEO
+
+- Aperçu des liens partagés (Open Graph et X) : `public/images/og-fr.jpg` et `og-en.jpg` (1200×630).
+- `app/sitemap.ts` (avec hreflang), `app/robots.ts`, `app/manifest.ts`.
+- Pages de remerciement en `noindex` (non bloquées dans robots.txt, pour que Google lise la consigne).

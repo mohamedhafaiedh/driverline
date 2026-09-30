@@ -1,74 +1,59 @@
 "use client";
 
-import React, { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Icon from "@/components/Icon";
+import { getMessages } from "@/lib/i18n";
+import { LANGS, LOCALES, pagePath, type Lang, type PageKey } from "@/lib/seo";
 
-interface LanguageSwitcherProps {
-  currentLang?: "fr" | "en";
-  frHref?: string;
-  enHref?: string;
-}
-
-export default function LanguageSwitcher({
-  currentLang = "fr",
-  frHref = "/",
-  enHref = "/en",
-}: LanguageSwitcherProps) {
+export default function LanguageSwitcher({ lang, page }: { lang: Lang; page: PageKey }) {
   const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const others = LANGS.filter((l) => l !== lang);
+
+  useEffect(() => {
+    const onOutside = (e: MouseEvent | TouchEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) setIsOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setIsOpen(false);
+    document.addEventListener("mousedown", onOutside);
+    document.addEventListener("touchstart", onOutside);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onOutside);
+      document.removeEventListener("touchstart", onOutside);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
 
   return (
     <div
-      id="trp-floater-ls"
-      className="trp-language-switcher-container trp-floater-ls-flags trp-bottom-right trp-color-light only-flags"
-      data-no-translation=""
+      ref={containerRef}
+      className={`lang${isOpen ? " is-open" : ""}`}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
-      onClick={() => setIsOpen(!isOpen)}
     >
-      <div id="trp-floater-ls-current-language">
-        <a
-          href="#"
-          className="trp-floater-ls-disabled-language trp-ls-disabled-language"
-          onClick={(e) => e.preventDefault()}
-        >
-          <img
-            src={currentLang === "fr" ? "/images/fr_FR.png" : "/images/en_US.png"}
-            width={18}
-            height={12}
-            alt={currentLang === "fr" ? "fr_FR" : "en_US"}
-            title={currentLang === "fr" ? "Français" : "English"}
-            className="trp-flag-image"
-          />
-        </a>
-      </div>
-      <div
-        id="trp-floater-ls-language-list"
-        style={{ display: isOpen ? "block" : undefined }}
+      <button
+        type="button"
+        className="lang__trigger"
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+        aria-label={getMessages(lang).common.language}
+        onClick={() => setIsOpen((open) => !open)}
       >
-        <div className="trp-language-wrap trp-language-wrap-bottom">
-          <a href={frHref} title="Français">
-            <img
-              src="/images/fr_FR.png"
-              width={18}
-              height={12}
-              alt="fr_FR"
-              title="Français"
-              className="trp-flag-image"
-            />
-          </a>
-        </div>
-        <div className="trp-language-wrap trp-language-wrap-bottom">
-          <a href={enHref} title="English">
-            <img
-              src="/images/en_US.png"
-              width={18}
-              height={12}
-              alt="en_US"
-              title="English"
-              className="trp-flag-image"
-            />
-          </a>
-        </div>
-      </div>
+        <img className="lang__flag" src={LOCALES[lang].flag} width={18} height={12} alt="" />
+        <span className="lang__code">{lang.toUpperCase()}</span>
+        <Icon name="chevronDown" className="lang__caret" />
+      </button>
+      <ul className="lang__menu">
+        {others.map((l) => (
+          <li key={l}>
+            <a href={pagePath(page, l)} hrefLang={LOCALES[l].code} lang={LOCALES[l].code}>
+              <img className="lang__flag" src={LOCALES[l].flag} width={18} height={12} alt="" />
+              {LOCALES[l].name}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

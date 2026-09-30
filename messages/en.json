@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "home": {
+      "title": "Driver Line – Private VTC driver in Toulouse",
+      "description": "Driver Line, your private VTC chauffeur in Toulouse and Haute-Garonne. Blagnac Airport transfers, train stations, business trips and 24/7 private hire."
+    },
+    "legalNotice": {
+      "title": "Legal notice – Driver Line – Private VTC driver in Toulouse",
+      "description": "Legal notice and privacy policy of Driver Line, private VTC chauffeur service in Toulouse."
+    },
+    "thankYou": {
+      "title": "Thank you – Driver Line – Private VTC driver in Toulouse",
+      "description": "Thank you for requesting a quote with Driver Line. We will get back to you as soon as possible."
+    },
+    "notFound": {
+      "title": "Page not found – Driver Line"
+    }
+  },
+  "common": {
+    "skip": "Skip to content",
+    "quote": "I receive my free quote",
+    "backHome": "Back to home page",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "menuQuote": "Get my free quote",
+    "whatsapp": "Chat with Driver Line on WhatsApp",
+    "language": "Language: English",
+    "google": "Google"
+  },
+  "nav": {
+    "services": "Services",
+    "fleet": "Fleet",
+    "reviews": "Reviews",
+    "zones": "Coverage",
+    "quote": "Free quote"
+  },
+  "hero": {
+    "rating": "We are rated 4.8/5 on Google",
+    "title": "Your private driver available 24/7",
+    "lead": "For all your personal or professional trips in Toulouse and its surroundings",
+    "perks": [
+      "Punctuality",
+      "Free cancellations",
+      "Bilingual drivers"
+    ],
+    "formTitle": "Fill out the short form below and get your free quote",
+    "imageAlts": {
+      "aerien": "Aerial view of Toulouse and the Garonne river",
+      "toulouse": "The Pont Neuf and the Garonne river in Toulouse",
+      "chauffeur": "Chauffeur in a suit opening the door of a black sedan"
+    }
+  },
+  "about": {
+    "eyebrow": "About Driver Line",
+    "title": "Your trusted driver service in Toulouse",
+    "text": "At Driver Line, we offer tailor-made private chauffeur services in Toulouse, offering personalized and reliable transportation for all occasions. With our professional drivers and comfortable vehicles, we ensure a smooth and peaceful travel experience, tailored to your needs.",
+    "imageAlt": "Traveller with a suitcase in front of a black sedan as the chauffeur opens the door"
+  },
+  "services": {
+    "eyebrow": "What we offer",
+    "title": "Driver Line services",
+    "cta": "Request a quote",
+    "cards": [
+      {
+        "title": "Toulouse & surroundings transfers",
+        "text": "Your trips within Toulouse and up to 40 km around, at any time.",
+        "points": [
+          "City trips",
+          "Personal and business appointments",
+          "Restaurants, hotels and evenings out",
+          "Towns across the metropolitan area"
+        ],
+        "imageAlt": "Place du Capitole in Toulouse"
+      },
+      {
+        "title": "Airport & train station transfers",
+        "text": "Stress-free departures and arrivals, with no waiting.",
+        "points": [
+          "Toulouse-Blagnac Airport",
+          "Toulouse-Matabiau station",
+          "Meet and greet with a name sign",
+          "Flight and train tracking"
+        ],
+        "imageAlt": "Airplane at the boarding gate at dusk"
+      },
+      {
+        "title": "Chauffeur at your disposal",
+        "text": "A chauffeur and vehicle at your disposal, for as long as you need.",
+        "points": [
+          "City tours",
+          "Shopping",
+          "Private events",
+          "Business travel"
+        ],
+        "imageAlt": "Chauffeur in a suit opening the door of a black sedan"
+      },
+      {
+        "title": "Long-distance trips",
+        "text": "Any trip to or from Toulouse, anywhere in France.",
+        "points": [
+          "Intercity trips from Toulouse",
+          "Intercity trips to Toulouse",
+          "Any city in France",
+          "Neighboring countries"
+        ],
+        "imageAlt": "Highway lit up at night"
+      }
+    ],
+    "classic": [
+      {
+        "title": "Transfers",
+        "text": "For all your transfers in town, for airports, train stations, etc."
+      },
+      {
+        "title": "Hourly disposals",
+        "text": "Our chauffeur-driven cars are at your disposal for the desired duration."
+      },
+      {
+        "title": "Corporate Travel",
+        "text": "For your business trips and those of your colleagues."
+      },
+      {
+        "title": "City Tours",
+        "text": "Offers to help you discover the tourist sites of Toulouse and its region."
+      },
+      {
+        "title": "Long distance travel",
+        "text": "For long distance travel, to all cities in France, or even to neighboring countries."
+      },
+      {
+        "title": "Private events",
+        "text": "Tailor-made services for your personal or professional needs."
+      }
+    ]
+  },
+  "fleet": {
+    "eyebrow": "Discover Driver line's fleet",
+    "title": "Our fleet",
+    "passengers": "passengers",
+    "luggage": "luggage",
+    "book": "Book this vehicle",
+    "items": [
+      {
+        "category": "Economy sedan",
+        "model": "Tesla Model 3"
+      },
+      {
+        "category": "Van",
+        "model": "Mercedes V-Class"
+      },
+      {
+        "category": "Sedan",
+        "model": "Mercedes E-Class"
+      }
+    ]
+  },
+  "onboard": {
+    "eyebrow": "Services on board",
+    "title": "Maximum comfort, for the same price",
+    "imageAlt": "Passenger checking their phone in the back of a chauffeur-driven car",
+    "items": [
+      "Wi-Fi on board",
+      "Electric charging",
+      "Child and baby seats (on request)",
+      "Meet and greet"
+    ]
+  },
+  "reviews": {
+    "eyebrow": "Our customers are happy and they let us know it.",
+    "title": "Our customers' opinions",
+    "rating": "Driver Line is rated 4.8/5 on Google",
+    "starsLabel": "Rated 5 out of 5",
+    "source": "Google review",
+    "items": [
+      {
+        "name": "Brice Baessa",
+        "text": "Extremely professional. Highly recommended for services for businessmen, officials or others. I needed something of quality. This is what I found."
+      },
+      {
+        "name": "Morgane Bousquet",
+        "text": "Excellent service!! Our driver was very professional and very helpful, I highly recommend him!"
+      }
+    ]
+  },
+  "zones": {
+    "eyebrow": "A wide coverage",
+    "title": "Our coverage zones",
+    "text": [
+      "Our private driver service covers the entire Toulouse metropolitan area as well as a 40 km perimeter around Toulouse.",
+      "We also serve neighboring cities with routes to and from Toulouse, such as:"
+    ],
+    "cities": [
+      "Agen (47000)",
+      "Albi (81000 and 81990)",
+      "Auch (32000 and 32810)",
+      "Carcassonne (11000)",
+      "Foix (09000)",
+      "Lourdes (65100)",
+      "Montauban (82000)"
+    ]
+  },
+  "faq": {
+    "eyebrow": "Frequently asked questions",
+    "title": "Everything to know before booking",
+    "items": [
+      {
+        "q": "Are you available at night and on weekends?",
+        "a": "Yes. Driver Line is available 24/7, for early-morning departures as well as late returns."
+      },
+      {
+        "q": "Do you provide transfers to Toulouse-Blagnac Airport and train stations?",
+        "a": "Yes. We provide transfers to and from Toulouse-Blagnac Airport and train stations. On arrival, your chauffeur can meet you with a name sign."
+      },
+      {
+        "q": "How many passengers and how much luggage can you carry?",
+        "a": "Our sedans (Tesla Model 3, Mercedes E-Class) take 3 passengers and 3 pieces of luggage. The Mercedes V-Class takes up to 8 passengers and 7 pieces of luggage."
+      },
+      {
+        "q": "Do you provide child seats?",
+        "a": "Yes, child and baby seats are available on request. Just mention it in the “Additional information” field of the form."
+      },
+      {
+        "q": "How far do you travel?",
+        "a": "We cover the whole Toulouse metropolitan area and a 40 km perimeter around Toulouse, as well as trips to neighboring cities (Albi, Montauban, Carcassonne…) and long-distance journeys across France and to neighboring countries."
+      },
+      {
+        "q": "How do I get my quote?",
+        "a": "Fill out the form at the top of the page: the quote is free and with no commitment. You can also call us or message us on WhatsApp."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "How do I book my driver?",
+    "title": "Options to contact us",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "quote": "Quote request"
+  },
+  "footer": {
+    "nav": {
+      "services": "Our services",
+      "fleet": "Our fleet",
+      "reviews": "Customer reviews",
+      "zones": "Coverage area",
+      "quote": "Quote & Booking"
+    },
+    "rights": "© All rights reserved.",
+    "legal": "Legal notice"
+  },
+  "thanks": {
+    "title": "Thank you for requesting your free quote.",
+    "text": "We will get back to you as soon as possible."
+  },
+  "notFound": {
+    "title": "Page not found.",
+    "text": "The page you are looking for does not exist or has been moved."
+  },
+  "form": {
+    "aria": "VTC quote form",
+    "steps": [
+      "Your trip",
+      "Your details"
+    ],
+    "stepsAria": "Form steps",
+    "stepAnnounce": "Step 2 of 2: your details",
+    "pickup": "Pickup address",
+    "pickupPlaceholder": "Ex: Toulouse-Blagnac Airport, Hall B",
+    "dropoff": "Dropoff address",
+    "dropoffPlaceholder": "Ex: Place du Capitole, Toulouse",
+    "date": "Date",
+    "time": "Time",
+    "vehicle": "Vehicle",
+    "vehiclePlaceholder": "— Please choose a vehicle —",
+    "email": "Your email",
+    "emailPlaceholder": "Ex: john.doe@email.com",
+    "phone": "Your phone",
+    "phonePlaceholder": "Ex: +33 6 12 34 56 78",
+    "phoneTitle": "Only numbers and phone characters (#, -, *, etc) are accepted.",
+    "message": "Additional information",
+    "messagePlaceholder": "Ex: Flight number, excess luggage, child seat needed...",
+    "summary": "Your trip",
+    "edit": "Edit",
+    "next": "Next",
+    "back": "Back",
+    "submit": "I receive my free quote",
+    "sending": "Sending...",
+    "error": "Your request could not be sent. Please try again in a moment or call us directly:"
+  }
+}

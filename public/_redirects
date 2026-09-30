@@ -1,7 +1,11 @@
 /devis-envoye /merci/ 301!
 /devis-envoye/ /merci/ 301!
-/en/devis-envoye /en/merci/ 301!
-/en/devis-envoye/ /en/merci/ 301!
+/en/devis-envoye /en/thank-you/ 301!
+/en/devis-envoye/ /en/thank-you/ 301!
+/en/merci /en/thank-you/ 301!
+/en/merci/* /en/thank-you/ 301!
+/en/mentions-legales /en/legal-notice/ 301!
+/en/mentions-legales/* /en/legal-notice/ 301!
 
 /driverline-fr.preview-domain.com/mentions-legales/* /mentions-legales/ 301!
 /driverline-fr.preview-domain.com/mentions-legales /mentions-legales/ 301!

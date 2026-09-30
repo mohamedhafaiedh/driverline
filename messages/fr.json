@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "home": {
+      "title": "Driver Line – Chauffeur privé VTC à Toulouse",
+      "description": "Driver Line, votre chauffeur privé VTC à Toulouse et en Haute-Garonne. Transferts aéroport Blagnac, gares, trajets professionnels et mise à disposition 24/7."
+    },
+    "legalNotice": {
+      "title": "Mentions légales – Driver Line – Chauffeur privé VTC à Toulouse",
+      "description": "Mentions légales et politique de confidentialité du site Driver Line, service de chauffeur privé VTC à Toulouse."
+    },
+    "thankYou": {
+      "title": "Merci – Driver Line – Chauffeur privé VTC à Toulouse",
+      "description": "Merci pour votre demande de devis auprès de Driver Line. Nous revenons vers vous dans les plus brefs délais."
+    },
+    "notFound": {
+      "title": "Page introuvable – Driver Line"
+    }
+  },
+  "common": {
+    "skip": "Aller au contenu",
+    "quote": "Je reçois mon devis gratuit",
+    "backHome": "Retour à la page principale",
+    "menuOpen": "Ouvrir le menu",
+    "menuClose": "Fermer le menu",
+    "menuQuote": "J'obtiens mon devis gratuit",
+    "whatsapp": "Discuter avec Driver Line sur WhatsApp",
+    "language": "Langue : Français",
+    "google": "Google"
+  },
+  "nav": {
+    "services": "Services",
+    "fleet": "Flotte",
+    "reviews": "Avis clients",
+    "zones": "Zones",
+    "quote": "Devis gratuit"
+  },
+  "hero": {
+    "rating": "Nous sommes notés 4.8/5 sur Google",
+    "title": "Votre chauffeur privé VTC disponible 24/7",
+    "lead": "Pour tous vos déplacements personnels ou professionnels à Toulouse et son agglomération.",
+    "perks": [
+      "Ponctualité",
+      "Annulations gratuites",
+      "Chauffeurs bilingues"
+    ],
+    "formTitle": "Remplissez le petit formulaire ci-dessous et obtenez votre devis gratuit",
+    "imageAlts": {
+      "aerien": "Vue aérienne de Toulouse et de la Garonne",
+      "toulouse": "Le Pont Neuf et la Garonne à Toulouse",
+      "chauffeur": "Chauffeur en costume ouvrant la portière d'une berline noire"
+    }
+  },
+  "about": {
+    "eyebrow": "À propos de Driver Line",
+    "title": "Votre service de chauffeur VTC de confiance à Toulouse",
+    "text": "Chez Driver Line, nous proposons des services de chauffeur privé sur-mesure à Toulouse, offrant des transports personnalisés et fiables pour toutes les occasions. Avec nos chauffeurs professionnels et nos véhicules confortables, nous vous assurons une expérience de voyage fluide et paisible, adaptée à vos besoins.",
+    "imageAlt": "Voyageur avec sa valise devant une berline noire dont le chauffeur ouvre la portière"
+  },
+  "services": {
+    "eyebrow": "Ce que nous offrons",
+    "title": "Les services de Driver Line",
+    "cta": "Demander un devis",
+    "cards": [
+      {
+        "title": "Transferts Toulouse et alentours",
+        "text": "Vos trajets dans Toulouse et jusqu’à 40 km autour, à toute heure.",
+        "points": [
+          "Trajets en ville",
+          "Rendez-vous personnels et professionnels",
+          "Restaurants, hôtels et soirées",
+          "Communes de l’agglomération"
+        ],
+        "imageAlt": "Place du Capitole à Toulouse"
+      },
+      {
+        "title": "Transferts gares et aéroports",
+        "text": "Des départs et des arrivées sereins, sans stress ni attente.",
+        "points": [
+          "Aéroport Toulouse-Blagnac",
+          "Gare Toulouse-Matabiau",
+          "Accueil avec pancarte nominative",
+          "Suivi de votre vol ou de votre train"
+        ],
+        "imageAlt": "Avion à la porte d’embarquement au crépuscule"
+      },
+      {
+        "title": "Mise à disposition",
+        "text": "Un chauffeur et son véhicule à votre disposition, pour la durée de votre choix.",
+        "points": [
+          "City tours",
+          "Shopping",
+          "Événements privés",
+          "Déplacements professionnels"
+        ],
+        "imageAlt": "Chauffeur en costume ouvrant la portière d’une berline noire"
+      },
+      {
+        "title": "Trajets longues distances",
+        "text": "Tout trajet au départ ou à destination de Toulouse, partout en France.",
+        "points": [
+          "Trajets interville depuis Toulouse",
+          "Trajets interville vers Toulouse",
+          "Toutes les villes de France",
+          "Pays voisins"
+        ],
+        "imageAlt": "Autoroute éclairée de nuit"
+      }
+    ],
+    "classic": [
+      {
+        "title": "Transferts",
+        "text": "Pour tous vos transferts en ville, pour les aéroports, gares, etc."
+      },
+      {
+        "title": "Mises à disposition",
+        "text": "Nos voitures avec chauffeur sont à votre disposition pour la durée souhaitée."
+      },
+      {
+        "title": "Déplacements professionnels",
+        "text": "Pour vos déplacements professionnels et ceux de vos collaborateurs."
+      },
+      {
+        "title": "Visites touristiques",
+        "text": "Des offres pour vous faire découvrir les sites touristiques de Toulouse et de sa région."
+      },
+      {
+        "title": "Trajets longues distances",
+        "text": "Pour des voyages longue distance, vers toutes les villes France, ou même vers les pays voisins."
+      },
+      {
+        "title": "Evènements privés",
+        "text": "Des prestations sur mesure pour vos besoins aussi bien personnels ou professionnels."
+      }
+    ]
+  },
+  "fleet": {
+    "eyebrow": "Découvrez la flotte Driver line",
+    "title": "Notre gamme de véhicules",
+    "passengers": "passagers",
+    "luggage": "bagages",
+    "book": "Réserver ce véhicule",
+    "items": [
+      {
+        "category": "Berline économique",
+        "model": "Tesla Modèle 3"
+      },
+      {
+        "category": "Van",
+        "model": "Mercedes Classe V"
+      },
+      {
+        "category": "Berline",
+        "model": "Mercedes Classe E"
+      }
+    ]
+  },
+  "onboard": {
+    "eyebrow": "Services à bord",
+    "title": "Un maximum de confort, pour le même prix",
+    "imageAlt": "Passager consultant son téléphone à l'arrière d'une voiture avec chauffeur",
+    "items": [
+      "Wi-Fi à bord",
+      "Recharge électrique",
+      "Sièges enfant et bébé (sur demande)",
+      "Accueil avec pancarte nominative"
+    ]
+  },
+  "reviews": {
+    "eyebrow": "Nos clients sont heureux et ils nous le font savoir",
+    "title": "Les avis de nos clients",
+    "rating": "Driver Line est notée 4.8/5 sur Google",
+    "starsLabel": "Noté 5 sur 5",
+    "source": "Avis Google",
+    "items": [
+      {
+        "name": "Brice Baessa",
+        "text": "Extrêmement professionnel. Tout à fait recommandé pour des prestations pour hommes d’affaires, officiels ou autres. J’avais besoin de quelque chose de qualitatif. C’est ce que j’ai trouvé."
+      },
+      {
+        "name": "Morgane Bousquet",
+        "text": "Excellent service !! Notre chauffeur a été très professionnel et très serviable, je le recommande vivement !"
+      }
+    ]
+  },
+  "zones": {
+    "eyebrow": "Une couverture étendue",
+    "title": "Notre zone de couverture",
+    "text": [
+      "Notre service de chauffeur privé VTC couvre l’ensemble de l’agglomération toulousaine ainsi qu’un périmètre de 40 km autour de Toulouse.",
+      "Nous desservons également les villes voisines avec des trajets depuis et vers Toulouse, telles que :"
+    ],
+    "cities": [
+      "Agen (47000)",
+      "Albi (81000 et 81990)",
+      "Auch (32000 et 32810)",
+      "Carcassonne (11000)",
+      "Foix (09000)",
+      "Lourdes (65100)",
+      "Montauban (82000)"
+    ]
+  },
+  "faq": {
+    "eyebrow": "Questions fréquentes",
+    "title": "Tout savoir avant de réserver",
+    "items": [
+      {
+        "q": "Êtes-vous disponibles la nuit et le week-end ?",
+        "a": "Oui. Driver Line est disponible 24 h/24 et 7 j/7, pour vos départs tôt le matin comme pour vos retours tardifs."
+      },
+      {
+        "q": "Assurez-vous les transferts vers l'aéroport de Toulouse-Blagnac et les gares ?",
+        "a": "Oui. Nous assurons les transferts vers et depuis l'aéroport de Toulouse-Blagnac et les gares. À l'arrivée, votre chauffeur peut vous accueillir avec une pancarte nominative."
+      },
+      {
+        "q": "Combien de passagers et de bagages pouvez-vous transporter ?",
+        "a": "Nos berlines (Tesla Modèle 3, Mercedes Classe E) accueillent 3 passagers et 3 bagages. Le Mercedes Classe V accueille jusqu'à 8 passagers et 7 bagages."
+      },
+      {
+        "q": "Proposez-vous des sièges enfant ?",
+        "a": "Oui, des sièges enfant et bébé sont disponibles sur demande. Précisez-le dans le champ « Informations additionnelles » du formulaire."
+      },
+      {
+        "q": "Jusqu'où vous déplacez-vous ?",
+        "a": "Nous couvrons toute l'agglomération toulousaine et un périmètre de 40 km autour de Toulouse, ainsi que les trajets vers les villes voisines (Albi, Montauban, Carcassonne…) et les longues distances en France et vers les pays voisins."
+      },
+      {
+        "q": "Comment obtenir mon devis ?",
+        "a": "Remplissez le formulaire en haut de page : le devis est gratuit et sans engagement. Vous pouvez aussi nous appeler ou nous écrire sur WhatsApp."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Comment réserver mon chauffeur ?",
+    "title": "Les options pour nous contacter",
+    "phone": "Téléphone",
+    "whatsapp": "WhatsApp",
+    "email": "E-mail",
+    "quote": "Demande de devis"
+  },
+  "footer": {
+    "nav": {
+      "services": "Nos services",
+      "fleet": "Notre flotte",
+      "reviews": "Avis clients",
+      "zones": "Zone de couverture",
+      "quote": "Devis & Réservation"
+    },
+    "rights": "© Tous droits réservés.",
+    "legal": "Mentions légales"
+  },
+  "thanks": {
+    "title": "Merci d'avoir demandé votre devis gratuit.",
+    "text": "Nous reviendrons vers vous dans les délais les plus courts."
+  },
+  "notFound": {
+    "title": "Page introuvable.",
+    "text": "La page que vous cherchez n'existe pas ou a été déplacée."
+  },
+  "form": {
+    "aria": "Formulaire de devis VTC",
+    "steps": [
+      "Votre trajet",
+      "Vos coordonnées"
+    ],
+    "stepsAria": "Étapes du formulaire",
+    "stepAnnounce": "Étape 2 sur 2 : vos coordonnées",
+    "pickup": "Adresse de départ",
+    "pickupPlaceholder": "Ex : Aéroport Toulouse-Blagnac, Hall B",
+    "dropoff": "Adresse d'arrivée",
+    "dropoffPlaceholder": "Ex : Place du Capitole, Toulouse",
+    "date": "Date",
+    "time": "Heure",
+    "vehicle": "Voiture",
+    "vehiclePlaceholder": "— Veuillez choisir un véhicule —",
+    "email": "Votre email",
+    "emailPlaceholder": "Ex : jean.dupont@email.fr",
+    "phone": "Votre téléphone",
+    "phonePlaceholder": "Ex : 06 12 34 56 78",
+    "phoneTitle": "Seuls les caractères de numéros de téléphone (#, -, *, etc.) sont acceptés.",
+    "message": "Informations additionnelles",
+    "messagePlaceholder": "Ex : Numéro de vol, bagages volumineux, siège bébé souhaité...",
+    "summary": "Votre trajet",
+    "edit": "Modifier",
+    "next": "Suivant",
+    "back": "Retour",
+    "submit": "Je reçois mon devis gratuit",
+    "sending": "Envoi en cours...",
+    "error": "L'envoi n'a pas abouti. Réessayez dans un instant ou appelez-nous directement :"
+  }
+}
