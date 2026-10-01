@@ -1,10 +1,24 @@
 // Données du site qui ne se traduisent pas (coordonnées, icônes, véhicules).
 // Les textes sont dans messages/<langue>.json, dans le même ordre que ces listes.
+// Coordonnées et informations légales de l'entreprise : data/company.json (saisies une seule fois).
+import company from "@/data/company.json";
 
-export const PHONE_DISPLAY = "+33 6 86 60 35 84";
-export const PHONE_HREF = "tel:+33686603584";
-export const WHATSAPP_HREF = "https://wa.me/33686603584";
-export const EMAIL = "contact@driverline.fr";
+export const COMPANY = company;
+// Nom utilisé dans les textes légaux : dénomination sociale si renseignée, sinon nom commercial
+export const COMPANY_NAME = company.legalName.trim() || company.tradeName;
+// Ligne « Dénomination sociale » des mentions légales : la forme juridique suit le nom après une virgule
+// (« MECA Services, SAS »). Vide si la dénomination n'est pas renseignée.
+export const LEGAL_NAME_WITH_FORM = company.legalName.trim()
+  ? [company.legalName.trim(), company.legalForm.trim()].filter(Boolean).join(", ")
+  : "";
+
+const digits = (phone: string) => phone.replace(/[^\d+]/g, "");
+
+export const PHONE_DISPLAY = company.phone;
+export const PHONE_HREF = `tel:${digits(company.phone)}`;
+export const PHONE_E164 = digits(company.phone);
+export const WHATSAPP_HREF = `https://wa.me/${digits(company.whatsapp).replace("+", "")}`;
+export const EMAIL = company.email;
 export const GOOGLE_RATING = "4.8";
 
 // Ancres des sections de l'accueil
@@ -46,8 +60,8 @@ export const ONBOARD_ICONS = ["wifi", "power", "baby", "sign"] as const;
 // `vehicle` = valeur envoyée par le formulaire de devis (identique à public/form.html)
 export const VEHICLE_OPTIONS = ["Berline (3 pax)", "Van (7 pax)"] as const;
 
+// Deux véhicules, présentés « ou équivalent » (le modèle exact peut varier selon la disponibilité)
 export const FLEET = [
-  { image: "/images/Tesla3.png", pax: 3, bags: 3, vehicle: VEHICLE_OPTIONS[0] },
-  { image: "/images/V-Class.png", pax: 8, bags: 7, vehicle: VEHICLE_OPTIONS[1] },
+  { image: "/images/V-Class.png", pax: 7, bags: 7, vehicle: VEHICLE_OPTIONS[1] },
   { image: "/images/eclass.png", pax: 3, bags: 3, vehicle: VEHICLE_OPTIONS[0] },
 ] as const;

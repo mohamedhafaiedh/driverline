@@ -8,15 +8,17 @@ import { getMessages } from "@/lib/i18n";
 import { pagePath, type Lang, type PageKey } from "@/lib/seo";
 import { NAV, PHONE_DISPLAY, PHONE_HREF, SECTIONS } from "@/lib/site";
 
+// Au-delà de cette largeur, la navigation complète est visible : le menu mobile se ferme
+const DESKTOP_QUERY = "(min-width: 1024px)";
+
 export default function SiteHeader({ lang, page }: { lang: Lang; page: PageKey }) {
   const { nav, common } = getMessages(lang);
   const isHome = page === "";
   const base = isHome ? "" : pagePath("", lang);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const headerRef = useRef<HTMLElement>(null);
-  const burgerRef = useRef<HTMLButtonElement>(null);
-  const menuRef = useRef<HTMLElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -25,112 +27,104 @@ export default function SiteHeader({ lang, page }: { lang: Lang; page: PageKey }
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Menu plein écran : la page derrière ne défile plus
+  // Menu plein écran en <dialog> modal : le navigateur garde le focus dans le menu,
+  // rend la page inactive derrière, ferme avec Échap et rend le focus au burger.
   useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (menuOpen && !dialog.open) {
+      dialog.showModal();
+      closeRef.current?.focus();
+    } else if (!menuOpen && dialog.open) {
+      dialog.close();
+    }
+    // La page derrière ne défile plus
     document.documentElement.classList.toggle("menu-open", menuOpen);
     return () => document.documentElement.classList.remove("menu-open");
   }, [menuOpen]);
 
   useEffect(() => {
-    if (!menuOpen) return;
-    const menu = menuRef.current;
-    const focusables = () =>
-      [burgerRef.current, ...Array.from(menu?.querySelectorAll<HTMLElement>("a, button") ?? [])].filter(
-        (el): el is HTMLElement => !!el
-      );
-    const close = () => {
-      setMenuOpen(false);
-      burgerRef.current?.focus();
-    };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-      if (e.key !== "Tab") return;
-      // Tabulation bouclée entre le bouton du menu et les liens du menu ouvert
-      const items = focusables();
-      const first = items[0];
-      const last = items[items.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    };
-    const onOutside = (e: MouseEvent | TouchEvent) => {
-      if (headerRef.current && !headerRef.current.contains(e.target as Node)) setMenuOpen(false);
-    };
-    document.addEventListener("keydown", onKey);
-    document.addEventListener("mousedown", onOutside);
-    document.addEventListener("touchstart", onOutside);
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.removeEventListener("mousedown", onOutside);
-      document.removeEventListener("touchstart", onOutside);
-    };
-  }, [menuOpen]);
+    const desktop = window.matchMedia(DESKTOP_QUERY);
+    const onChange = () => desktop.matches && setMenuOpen(false);
+    desktop.addEventListener("change", onChange);
+    return () => desktop.removeEventListener("change", onChange);
+  }, []);
 
-  const classes = ["site-header", scrolled && "is-scrolled", menuOpen && "is-open"].filter(Boolean).join(" ");
+  const closeMenu = () => setMenuOpen(false);
   const href = (key: (typeof NAV)[number]) => `${base}#${SECTIONS[key]}`;
 
-  return (
-    <header ref={headerRef} className={classes}>
-      <div className="site-header__bar container">
-        <a className="site-header__logo" href={pagePath("", lang)} aria-label="Driver Line">
-          <Image src="/images/Driver-Line-logo-1000-x-200-px-1000-x-150-px-1.png" alt="Driver Line" width={1000} height={150} />
-        </a>
+  // Barre d'en-tête, rendue dans l'en-tête et en haut du menu : la croix tombe exactement à la place du burger
+  const bar = (inMenu: boolean) => (
+    <div className="site-header__bar container">
+      <a className="site-header__logo" href={pagePath("", lang)} aria-label="Driver Line" onClick={inMenu ? closeMenu : undefined}>
+        <Image src="/images/Driver-Line-logo-plein-blanc.png" alt="Driver Line" width={1000} height={150} />
+      </a>
 
+      {!inMenu && (
         <nav className="site-nav" aria-label="Menu">
           <ul>
             {NAV.map((key) => (
               <li key={key}>
-                <a href={href(key)}>
-                  {nav[key]}
-                </a>
+                <a href={href(key)}>{nav[key]}</a>
               </li>
             ))}
           </ul>
         </nav>
+      )}
 
-        <div className="site-header__actions">
-          <LanguageSwitcher lang={lang} page={page} />
-          <a className="btn btn--light btn--sm site-header__call" href={PHONE_HREF}>
-            <Icon name="phone" />
-            <span>{PHONE_DISPLAY}</span>
-          </a>
+      <div className="site-header__actions">
+        <LanguageSwitcher lang={lang} page={page} />
+        <a className="btn btn--light btn--sm site-header__call" href={PHONE_HREF}>
+          <Icon name="phone" />
+          <span>{PHONE_DISPLAY}</span>
+        </a>
+        {inMenu ? (
+          <button ref={closeRef} type="button" className="burger is-close" aria-label={common.menuClose} onClick={closeMenu}>
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </button>
+        ) : (
           <button
-            ref={burgerRef}
             type="button"
             className="burger"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            aria-label={menuOpen ? common.menuClose : common.menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
+            aria-label={common.menuOpen}
+            onClick={() => setMenuOpen(true)}
           >
             <span aria-hidden="true" />
             <span aria-hidden="true" />
           </button>
-        </div>
+        )}
       </div>
+    </div>
+  );
 
-      <nav id="mobile-menu" ref={menuRef} className="mobile-menu" aria-label="Menu" hidden={!menuOpen}>
-        <ul className="container">
-          {NAV.filter((key) => key !== "quote").map((key) => (
-            <li key={key}>
-              <a href={href(key)} onClick={() => setMenuOpen(false)}>
-                {nav[key]}
+  return (
+    <>
+      <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>{bar(false)}</header>
+
+      <dialog id="mobile-menu" ref={dialogRef} className="menu-dialog" aria-label="Menu" onClose={closeMenu}>
+        {bar(true)}
+        <nav className="mobile-menu" aria-label="Menu">
+          <ul className="container">
+            {NAV.filter((key) => key !== "quote").map((key) => (
+              <li key={key}>
+                <a href={href(key)} onClick={closeMenu}>
+                  {nav[key]}
+                  <Icon name="arrowRight" />
+                </a>
+              </li>
+            ))}
+            <li className="mobile-menu__cta">
+              <a className="btn btn--light" href={href("quote")} onClick={closeMenu}>
+                {common.menuQuote}
                 <Icon name="arrowRight" />
               </a>
             </li>
-          ))}
-          <li className="mobile-menu__cta">
-            <a className="btn btn--light" href={href("quote")} onClick={() => setMenuOpen(false)}>
-              {common.menuQuote}
-              <Icon name="arrowRight" />
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+          </ul>
+        </nav>
+      </dialog>
+    </>
   );
 }

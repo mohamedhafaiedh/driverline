@@ -1,0 +1,24 @@
+{
+  "tradeName": "Driver Line",
+  "legalName": "",
+  "legalForm": "",
+  "shareCapital": "",
+  "registeredOffice": "",
+  "siren": "",
+  "vatNumber": "",
+  "phone": "+33 6 86 60 35 84",
+  "whatsapp": "+33 6 86 60 35 84",
+  "email": "contact@driverline.fr",
+  "publicationDirector": "Driver Line",
+  "host": {
+    "name": "Netlify, Inc.",
+    "website": "www.netlify.com",
+    "phone": ""
+  },
+  "creator": {
+    "name": "",
+    "website": "",
+    "phone": "",
+    "email": ""
+  }
+}

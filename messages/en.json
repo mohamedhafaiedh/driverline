@@ -1,15 +1,15 @@
 {
   "meta": {
     "home": {
-      "title": "Driver Line – Private VTC driver in Toulouse",
-      "description": "Driver Line, your private VTC chauffeur in Toulouse and Haute-Garonne. Blagnac Airport transfers, train stations, business trips and 24/7 private hire."
+      "title": "Driver Line – Private chauffeur in Toulouse",
+      "description": "Driver Line, your private chauffeur in Toulouse and Haute-Garonne. Blagnac Airport transfers, train stations, business trips and 24/7 private hire."
     },
     "legalNotice": {
-      "title": "Legal notice – Driver Line – Private VTC driver in Toulouse",
-      "description": "Legal notice and privacy policy of Driver Line, private VTC chauffeur service in Toulouse."
+      "title": "Legal notice – Driver Line – Private chauffeur in Toulouse",
+      "description": "Legal notice and privacy policy of Driver Line, private chauffeur service in Toulouse."
     },
     "thankYou": {
-      "title": "Thank you – Driver Line – Private VTC driver in Toulouse",
+      "title": "Thank you – Driver Line – Private chauffeur in Toulouse",
       "description": "Thank you for requesting a quote with Driver Line. We will get back to you as soon as possible."
     },
     "notFound": {
@@ -36,7 +36,7 @@
   },
   "hero": {
     "rating": "We are rated 4.8/5 on Google",
-    "title": "Your private driver available 24/7",
+    "title": "Your private chauffeur available 24/7",
     "lead": "For all your personal or professional trips in Toulouse and its surroundings",
     "perks": [
       "Punctuality",
@@ -52,7 +52,7 @@
   },
   "about": {
     "eyebrow": "About Driver Line",
-    "title": "Your trusted driver service in Toulouse",
+    "title": "Your trusted private chauffeur service in Toulouse",
     "text": "At Driver Line, we offer tailor-made private chauffeur services in Toulouse, offering personalized and reliable transportation for all occasions. With our professional drivers and comfortable vehicles, we ensure a smooth and peaceful travel experience, tailored to your needs.",
     "imageAlt": "Traveller with a suitcase in front of a black sedan as the chauffeur opens the door"
   },
@@ -138,12 +138,9 @@
     "title": "Our fleet",
     "passengers": "passengers",
     "luggage": "luggage",
+    "equivalent": "or equivalent",
     "book": "Book this vehicle",
     "items": [
-      {
-        "category": "Economy sedan",
-        "model": "Tesla Model 3"
-      },
       {
         "category": "Van",
         "model": "Mercedes V-Class"
@@ -186,7 +183,7 @@
     "eyebrow": "A wide coverage",
     "title": "Our coverage zones",
     "text": [
-      "Our private driver service covers the entire Toulouse metropolitan area as well as a 40 km perimeter around Toulouse.",
+      "Our private chauffeur service covers the entire Toulouse metropolitan area as well as a 40 km perimeter around Toulouse.",
       "We also serve neighboring cities with routes to and from Toulouse, such as:"
     ],
     "cities": [
@@ -213,7 +210,7 @@
       },
       {
         "q": "How many passengers and how much luggage can you carry?",
-        "a": "Our sedans (Tesla Model 3, Mercedes E-Class) take 3 passengers and 3 pieces of luggage. The Mercedes V-Class takes up to 8 passengers and 7 pieces of luggage."
+        "a": "Our Mercedes E-Class sedan (or equivalent) takes 3 passengers and 3 pieces of luggage. The Mercedes V-Class (or equivalent) takes up to 7 passengers and 7 pieces of luggage."
       },
       {
         "q": "Do you provide child seats?",
@@ -257,7 +254,7 @@
     "text": "The page you are looking for does not exist or has been moved."
   },
   "form": {
-    "aria": "VTC quote form",
+    "aria": "Private chauffeur quote form",
     "steps": [
       "Your trip",
       "Your details"
@@ -285,6 +282,8 @@
     "back": "Back",
     "submit": "I receive my free quote",
     "sending": "Sending...",
-    "error": "Your request could not be sent. Please try again in a moment or call us directly:"
+    "error": "Your request could not be sent. Please try again in a moment or call us directly:",
+    "privacy": "Your details are only used to handle your quote request. They are never sold or passed on to third parties.",
+    "privacyLink": "Learn more"
   }
 }

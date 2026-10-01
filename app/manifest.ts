@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Driver Line – Chauffeur privé VTC à Toulouse",
+    name: "Driver Line – Chauffeur privé à Toulouse",
     short_name: "Driver Line",
     start_url: "/",
     display: "browser",

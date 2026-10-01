@@ -13,7 +13,7 @@ export default function SiteFooter({ lang, page }: { lang: Lang; page: PageKey }
         <div className="site-footer__top">
           <a className="site-footer__logo" href={pagePath("", lang)} aria-label="Driver Line">
             <Image
-              src="/images/Driver-Line-logo-1000-x-200-px-1000-x-150-px-1.png"
+              src="/images/Driver-Line-logo-plein-blanc.png"
               alt="Driver Line"
               width={1000}
               height={150}

@@ -12,14 +12,4 @@
 /driverline-fr.preview-domain.com/* / 301!
 /driverline-fr.preview-domain.com / 301!
 
-/hello-world/* / 301!
-/hello-world / 301!
-/category/* / 301!
-/author/* / 301!
-/tag/* / 301!
-/feed/* / 301!
-/feed / 301!
-/comments/feed/* / 301!
-/comments/feed / 301!
-/wp-login.php / 301!
-/wp-admin/* / 301!
+# Anciennes URLs WordPress : renvoyées en 410 par netlify/edge-functions/block-legacy.js

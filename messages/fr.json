@@ -1,15 +1,15 @@
 {
   "meta": {
     "home": {
-      "title": "Driver Line – Chauffeur privé VTC à Toulouse",
-      "description": "Driver Line, votre chauffeur privé VTC à Toulouse et en Haute-Garonne. Transferts aéroport Blagnac, gares, trajets professionnels et mise à disposition 24/7."
+      "title": "Driver Line – Chauffeur privé à Toulouse",
+      "description": "Driver Line, votre chauffeur privé à Toulouse et en Haute-Garonne. Transferts aéroport Blagnac, gares, trajets professionnels et mise à disposition 24/7."
     },
     "legalNotice": {
-      "title": "Mentions légales – Driver Line – Chauffeur privé VTC à Toulouse",
-      "description": "Mentions légales et politique de confidentialité du site Driver Line, service de chauffeur privé VTC à Toulouse."
+      "title": "Mentions légales – Driver Line – Chauffeur privé à Toulouse",
+      "description": "Mentions légales et politique de confidentialité du site Driver Line, service de chauffeur privé à Toulouse."
     },
     "thankYou": {
-      "title": "Merci – Driver Line – Chauffeur privé VTC à Toulouse",
+      "title": "Merci – Driver Line – Chauffeur privé à Toulouse",
       "description": "Merci pour votre demande de devis auprès de Driver Line. Nous revenons vers vous dans les plus brefs délais."
     },
     "notFound": {
@@ -36,7 +36,7 @@
   },
   "hero": {
     "rating": "Nous sommes notés 4.8/5 sur Google",
-    "title": "Votre chauffeur privé VTC disponible 24/7",
+    "title": "Votre chauffeur privé disponible 24/7",
     "lead": "Pour tous vos déplacements personnels ou professionnels à Toulouse et son agglomération.",
     "perks": [
       "Ponctualité",
@@ -52,7 +52,7 @@
   },
   "about": {
     "eyebrow": "À propos de Driver Line",
-    "title": "Votre service de chauffeur VTC de confiance à Toulouse",
+    "title": "Votre service de chauffeur privé de confiance à Toulouse",
     "text": "Chez Driver Line, nous proposons des services de chauffeur privé sur-mesure à Toulouse, offrant des transports personnalisés et fiables pour toutes les occasions. Avec nos chauffeurs professionnels et nos véhicules confortables, nous vous assurons une expérience de voyage fluide et paisible, adaptée à vos besoins.",
     "imageAlt": "Voyageur avec sa valise devant une berline noire dont le chauffeur ouvre la portière"
   },
@@ -138,12 +138,9 @@
     "title": "Notre gamme de véhicules",
     "passengers": "passagers",
     "luggage": "bagages",
+    "equivalent": "ou équivalent",
     "book": "Réserver ce véhicule",
     "items": [
-      {
-        "category": "Berline économique",
-        "model": "Tesla Modèle 3"
-      },
       {
         "category": "Van",
         "model": "Mercedes Classe V"
@@ -186,7 +183,7 @@
     "eyebrow": "Une couverture étendue",
     "title": "Notre zone de couverture",
     "text": [
-      "Notre service de chauffeur privé VTC couvre l’ensemble de l’agglomération toulousaine ainsi qu’un périmètre de 40 km autour de Toulouse.",
+      "Notre service de chauffeur privé couvre l’ensemble de l’agglomération toulousaine ainsi qu’un périmètre de 40 km autour de Toulouse.",
       "Nous desservons également les villes voisines avec des trajets depuis et vers Toulouse, telles que :"
     ],
     "cities": [
@@ -213,7 +210,7 @@
       },
       {
         "q": "Combien de passagers et de bagages pouvez-vous transporter ?",
-        "a": "Nos berlines (Tesla Modèle 3, Mercedes Classe E) accueillent 3 passagers et 3 bagages. Le Mercedes Classe V accueille jusqu'à 8 passagers et 7 bagages."
+        "a": "Notre berline Mercedes Classe E (ou équivalent) accueille 3 passagers et 3 bagages. Le Mercedes Classe V (ou équivalent) accueille jusqu'à 7 passagers et 7 bagages."
       },
       {
         "q": "Proposez-vous des sièges enfant ?",
@@ -257,7 +254,7 @@
     "text": "La page que vous cherchez n'existe pas ou a été déplacée."
   },
   "form": {
-    "aria": "Formulaire de devis VTC",
+    "aria": "Formulaire de devis chauffeur privé",
     "steps": [
       "Votre trajet",
       "Vos coordonnées"
@@ -285,6 +282,8 @@
     "back": "Retour",
     "submit": "Je reçois mon devis gratuit",
     "sending": "Envoi en cours...",
-    "error": "L'envoi n'a pas abouti. Réessayez dans un instant ou appelez-nous directement :"
+    "error": "L'envoi n'a pas abouti. Réessayez dans un instant ou appelez-nous directement :",
+    "privacy": "Vos informations servent uniquement à traiter votre demande de devis. Elles ne sont jamais vendues ni cédées à des tiers.",
+    "privacyLink": "En savoir plus"
   }
 }

@@ -1,10 +1,11 @@
 {
-  "name": "driverline-premium",
+  "name": "driverline",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/check-i18n.mjs",
+    "prebuild": "node scripts/check-i18n.mjs && node scripts/check-legal.mjs",
+    "legal:check": "node scripts/check-legal.mjs",
     "build": "next build",
     "i18n:check": "node scripts/check-i18n.mjs",
     "start": "next start",

@@ -144,6 +144,46 @@ const PATHS: Record<string, ReactNode> = {
   ),
   message: <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />,
   chevronDown: <path d="m6 9 6 6 6-6" />,
+  // Mentions légales : une icône par rubrique (mêmes icônes que les autres sites)
+  building: (
+    <>
+      <path d="M10 12h4" />
+      <path d="M10 8h4" />
+      <path d="M14 21v-3a2 2 0 0 0-4 0v3" />
+      <path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" />
+      <path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" />
+    </>
+  ),
+  server: (
+    <>
+      <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+      <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+      <path d="M6 6h.01" />
+      <path d="M6 18h.01" />
+    </>
+  ),
+  copyright: (
+    <>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M14.83 14.83a4 4 0 1 1 0-5.66" />
+    </>
+  ),
+  shieldCheck: (
+    <>
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+      <path d="m9 12 2 2 4-4" />
+    </>
+  ),
+  cookie: (
+    <>
+      <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5" />
+      <path d="M8.5 8.5v.01" />
+      <path d="M16 15.5v.01" />
+      <path d="M12 12v.01" />
+      <path d="M11 17v.01" />
+      <path d="M7 14v.01" />
+    </>
+  ),
 };
 
 export type IconName = keyof typeof PATHS;

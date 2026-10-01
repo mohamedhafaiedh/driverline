@@ -1,6 +1,6 @@
 import { getMessages } from "@/lib/i18n";
 import { SITE_URL, ogImage, pagePath, type Lang } from "@/lib/seo";
-import { EMAIL, GOOGLE_RATING } from "@/lib/site";
+import { COMPANY, COMPANY_NAME, EMAIL, GOOGLE_RATING, PHONE_E164 } from "@/lib/site";
 
 // Données structurées de l'entreprise, présentes sur toutes les pages
 export default function JsonLd({ lang }: { lang: Lang }) {
@@ -8,18 +8,18 @@ export default function JsonLd({ lang }: { lang: Lang }) {
 
   const schema = {
     "@context": "https://schema.org",
-    "@type": ["TaxiService", "LocalBusiness"],
+    "@type": "LocalBusiness",
     "@id": `${SITE_URL}/#localbusiness`,
-    name: "Driver Line",
-    legalName: "Driver Line",
-    alternateName: "Driver Line Toulouse VTC",
+    name: COMPANY.tradeName,
+    legalName: COMPANY_NAME,
+    alternateName: "Driver Line Chauffeur privé Toulouse",
     url: `${SITE_URL}${pagePath("", lang)}`,
-    logo: `${SITE_URL}/images/Driver-Line-logo-1000-x-200-px-1000-x-150-px.png`,
+    logo: `${SITE_URL}/images/Driver-Line-logo-plein.png`,
     image: ogImage(lang),
     description: isEn
-      ? "Premium private chauffeur and VTC service in Toulouse and Haute-Garonne: Toulouse-Blagnac Airport transfers, train stations, corporate travel and 24/7 private hire."
-      : "Service de chauffeur privé VTC à Toulouse et en Haute-Garonne : transferts aéroport Toulouse-Blagnac, gares, trajets professionnels et mise à disposition 24/7.",
-    telephone: "+33686603584",
+      ? "Premium private chauffeur service in Toulouse and Haute-Garonne: Toulouse-Blagnac Airport transfers, train stations, corporate travel and 24/7 chauffeur at your disposal."
+      : "Service de chauffeur privé haut de gamme à Toulouse et en Haute-Garonne : transferts aéroport Toulouse-Blagnac, gares, trajets professionnels et mise à disposition 24/7.",
+    telephone: PHONE_E164,
     email: EMAIL,
     priceRange: "€€",
     currenciesAccepted: "EUR",

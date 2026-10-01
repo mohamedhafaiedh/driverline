@@ -284,6 +284,11 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
           </>
         )}
       </div>
+
+      {/* Mention RGPD : usage des données, avec lien vers la politique de confidentialité */}
+      <p className="quote-form__privacy">
+        {t.privacy} <a href={`${pagePath("mentions-legales", lang)}#confidentialite`}>{t.privacyLink}</a>
+      </p>
     </form>
   );
 }

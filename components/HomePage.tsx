@@ -138,11 +138,14 @@ export default function HomePage({ lang }: { lang: Lang }) {
                 return (
                   <li className="car" key={car.image} data-reveal>
                     <div className="car__stage">
-                      <Image src={car.image} alt={text.model} width={439} height={340} sizes="(max-width: 700px) 90vw, 360px" />
+                      <Image src={car.image} alt={text.model} width={439} height={340} sizes="(max-width: 900px) 90vw, 600px" />
                     </div>
                     <div className="car__body">
                       <p className="car__category">{text.category}</p>
-                      <h3 className="car__model">{text.model}</h3>
+                      {/* Le modèle exact peut varier selon la disponibilité : « ou équivalent », en plus petit */}
+                      <h3 className="car__model">
+                        {text.model} <span className="car__equiv">{t.fleet.equivalent}</span>
+                      </h3>
                       <ul className="car__specs">
                         <li>
                           <Icon name="users" />

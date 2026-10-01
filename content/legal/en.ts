@@ -1,81 +1,112 @@
-import type { LegalContent } from "./types";
+import { COMPANY, COMPANY_NAME, LEGAL_NAME_WITH_FORM } from "@/lib/site";
+import type { LegalBlock, LegalContent } from "./types";
 
-// Translation of the French legal notice (the French version prevails).
+// Translation of the French legal notice (the French version prevails). Same structure as fr.ts.
 const legal: LegalContent = {
   title: "Legal notice",
+  subtitle: "Information about the website publisher, its host and the protection of your personal data.",
+  intro:
+    "In accordance with articles 6-III and 19 of French law no. 2004-575 of 21 June 2004 on confidence in the digital economy (LCEN), we provide users and visitors of this website with the following information.",
   sections: [
     {
+      id: "editeur",
+      icon: "building",
       title: "Website publisher",
       blocks: [
         {
           type: "facts",
           rows: [
-            ["Trade name", "Driver Line"],
-            ["Legal form", ""],
-            ["Share capital", ""],
-            ["Registered office", ""],
-            ["SIRET", ""],
-            ["Trade register (RCS)", ""],
-            ["EU VAT number", ""],
-            ["Phone", "+33 6 86 60 35 84"],
-            ["Email", "contact@driverline.fr"],
-            ["Publication director", "Driver Line"],
+            ["Company name", LEGAL_NAME_WITH_FORM],
+            ["Share capital", COMPANY.shareCapital],
+            ["Registered office", COMPANY.registeredOffice],
+            ["SIREN", COMPANY.siren],
+            ["EU VAT number", COMPANY.vatNumber],
+            ["Phone", COMPANY.phone],
+            ["Email", COMPANY.email],
+            ["Publication director", COMPANY.publicationDirector],
           ],
         },
       ],
     },
     {
-      title: "Hosting",
+      id: "hebergement",
+      icon: "server",
+      title: COMPANY.creator.name.trim() ? "Hosting and website design" : "Hosting",
       blocks: [
         {
           type: "facts",
           rows: [
-            ["Host", "Netlify, Inc."],
-            ["Website", "www.netlify.com"],
+            ["Host", COMPANY.host.name],
+            ["Website", COMPANY.host.website],
+            ["Phone", COMPANY.host.phone],
+          ],
+        },
+        // Créateur du site : affiché seulement si son nom est renseigné (chaque champ vide est masqué)
+        ...(COMPANY.creator.name.trim()
+          ? ([
+              { type: "h3", text: "Website design" },
+              {
+                type: "facts",
+                rows: [
+                  ["Designed by", COMPANY.creator.name],
+                  ["Website", COMPANY.creator.website],
+                  ["Phone", COMPANY.creator.phone],
+                  ["Email", COMPANY.creator.email],
+                ],
+              },
+            ] as LegalBlock[])
+          : []),
+      ],
+    },
+    {
+      id: "propriete",
+      icon: "copyright",
+      title: "Intellectual property and liability",
+      blocks: [
+        {
+          type: "p",
+          text: `All elements of this website (texts, logo, photographs, layout) are the property of ${COMPANY_NAME} or are used with permission. Any reproduction, representation or adaptation, in whole or in part, without prior written consent is prohibited (articles L.335-2 et seq. of the French Intellectual Property Code).`,
+        },
+        {
+          type: "p",
+          text: `The information on this website is provided for guidance only and does not constitute a contractual commitment. ${COMPANY_NAME} cannot be held responsible for the content of the websites it links to.`,
+        },
+        { type: "h3", text: "Photo credits" },
+        {
+          type: "ul",
+          items: [
+            "Aerial view of Toulouse: Caroline Léna Becker, CC BY 3.0 license (creativecommons.org/licenses/by/3.0), via Wikimedia Commons.",
+            "Place du Capitole, airport, highway, Pont Neuf: royalty-free photographs (CC0), via Wikimedia Commons.",
           ],
         },
       ],
     },
     {
-      title: "Intellectual property",
-      blocks: [
-        {
-          type: "p",
-          text: "All elements of this website (texts, logo, photographs, layout) are the property of Driver Line or are used with permission. Any reproduction, representation or adaptation, in whole or in part, without prior written consent is prohibited (articles L.335-2 et seq. of the French Intellectual Property Code).",
-        },
-      ],
-    },
-    {
+      id: "confidentialite",
+      icon: "shieldCheck",
       title: "Personal data",
       blocks: [
         {
           type: "p",
-          text: "Driver Line is the data controller for the personal data collected on this website. This data is processed in accordance with the General Data Protection Regulation (GDPR) and the French Data Protection Act.",
+          text: `${COMPANY_NAME} is the data controller for the personal data collected on this website. This data is processed in accordance with the General Data Protection Regulation (GDPR) and the French Data Protection Act.`,
         },
-        { type: "h3", text: "Data collected" },
+        { type: "h3", text: "Data collected and purposes" },
         {
           type: "p",
-          text: "Through the quote form: pickup and dropoff addresses, date and time of the trip, requested vehicle, email address, phone number and, where applicable, any information you add in the message.",
+          text: "Through the quote form: pickup and dropoff addresses, date and time of the trip, requested vehicle, email address, phone number and, where applicable, any information you add in the message. This data is used to:",
         },
-        { type: "h3", text: "Purposes and legal basis" },
         {
           type: "ul",
           items: [
-            "Answering your quote request and organising the service: pre-contractual measures and performance of the contract (article 6.1.b GDPR).",
-            "Meeting our accounting and tax obligations: legal obligation (article 6.1.c GDPR).",
+            "answer your quote request and organise the service: pre-contractual measures and performance of the contract (article 6.1.b GDPR);",
+            "meet our accounting and tax obligations: legal obligation (article 6.1.c GDPR).",
           ],
         },
-        { type: "h3", text: "Recipients" },
+        { type: "h3", text: "Recipients and retention" },
         {
           type: "p",
-          text: "The data is intended exclusively for Driver Line. It passes through our host (Netlify), acting as a processor. It is never sold or transferred to third parties for commercial purposes.",
+          text: `The data is intended exclusively for ${COMPANY_NAME} and its technical providers (hosting, audience measurement), acting as processors. Some of them may process data outside the European Union; these transfers are subject to the safeguards provided for by the GDPR. The data is never sold or transferred to third parties.`,
         },
-        { type: "h3", text: "Transfers outside the European Union" },
-        {
-          type: "p",
-          text: "As our host is based in the United States, some data may be transferred outside the European Union. These transfers are subject to the safeguards provided for by the GDPR.",
-        },
-        { type: "h3", text: "Retention period" },
         {
           type: "ul",
           items: [
@@ -86,45 +117,22 @@ const legal: LegalContent = {
         { type: "h3", text: "Your rights" },
         {
           type: "p",
-          text: "You have the following rights over your data:",
-        },
-        {
-          type: "ul",
-          items: [
-            "Right of access (article 15) and rectification (article 16)",
-            "Right to erasure (article 17)",
-            "Right to restriction of processing (article 18)",
-            "Right to data portability (article 20)",
-            "Right to object (article 21)",
-            "Right to withdraw your consent at any time (article 7)",
-            "Right to set guidelines for the handling of your data after your death",
-          ],
-        },
-        {
-          type: "p",
-          text: "To exercise these rights, email us at contact@driverline.fr. We reply within one month. If you believe your rights have not been respected, you may lodge a complaint with the CNIL, the French data protection authority (www.cnil.fr).",
+          text: `You have the right to access, rectify, erase, restrict, port and object to the processing of your data, to withdraw your consent at any time and to set guidelines for the handling of your data after your death. To exercise these rights, email us at ${COMPANY.email}; we reply within one month. You may also lodge a complaint with the CNIL, the French data protection authority (www.cnil.fr).`,
         },
       ],
     },
     {
-      title: "Cookies and analytics",
+      id: "cookies",
+      icon: "cookie",
+      title: "Cookies",
       blocks: [
         {
           type: "p",
-          text: "This website uses Google Tag Manager, a Google tool that may set analytics cookies. In line with CNIL guidelines, cookies that are not essential to the operation of the website may only be set with your consent.",
+          text: "This website uses Google Tag Manager and Google Analytics to measure its audience and improve its content. These tools only set cookies if you accept them.",
         },
         {
           type: "p",
-          text: "You can configure your browser at any time to block or delete cookies.",
-        },
-      ],
-    },
-    {
-      title: "Photo credits",
-      blocks: [
-        {
-          type: "p",
-          text: "Aerial view of Toulouse: Caroline Léna Becker, CC BY 3.0 license (creativecommons.org/licenses/by/3.0), via Wikimedia Commons. The other photographs are royalty-free (CC0).",
+          text: "On your first visit, a banner lets you accept or refuse these cookies. Your choice is kept for 6 months and you can change it at any time; audience measurement cookies last 13 months at most. You can also configure your browser to block or delete cookies.",
         },
       ],
     },

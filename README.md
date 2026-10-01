@@ -1,6 +1,6 @@
 # Driver Line
 
-Site Next.js (chauffeur privé VTC à Toulouse), déployé sur Netlify. Le français est à la racine (`/`), l'anglais sous `/en/`.
+Site Next.js (chauffeur privé à Toulouse), déployé sur Netlify. Le français est à la racine (`/`), l'anglais sous `/en/`.
 
 ```bash
 npm run dev          # développement

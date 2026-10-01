@@ -10,6 +10,8 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  // Pas de lien automatique sur les numéros, e-mails et adresses (Safari iOS) : seuls les liens voulus sont cliquables
+  formatDetection: { telephone: false, email: false, address: false },
   icons: SITE_ICONS,
 };
 

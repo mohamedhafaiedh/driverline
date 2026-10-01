@@ -4,9 +4,21 @@ import { DEFAULT_LANG, LANGS, LEGACY_EN_REDIRECTS, pagePath } from "./lib/seo";
 // Préfixes réservés aux autres langues (ex. « en ») : tout le reste est servi en langue par défaut
 const OTHER_LANGS = LANGS.filter((lang) => lang !== DEFAULT_LANG).join("|");
 
+// En-têtes de sécurité standard, appliqués à toutes les pages
+const securityHeaders = [
+  { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
+];
+
 const nextConfig: NextConfig = {
   trailingSlash: true,
   poweredByHeader: false,
+  async headers() {
+    return [{ source: "/:path*", headers: securityHeaders }];
+  },
   async redirects() {
     return [
       { source: "/devis-envoye", destination: pagePath("merci", "fr"), permanent: true },
@@ -24,15 +36,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: "/driverline-fr.preview-domain.com/:path*", destination: "/", permanent: true },
-      // Anciennes URLs WordPress
-      { source: "/hello-world/:path*", destination: "/", permanent: true },
-      { source: "/category/:path*", destination: "/", permanent: true },
-      { source: "/author/:path*", destination: "/", permanent: true },
-      { source: "/tag/:path*", destination: "/", permanent: true },
-      { source: "/feed/:path*", destination: "/", permanent: true },
-      { source: "/comments/feed/:path*", destination: "/", permanent: true },
-      { source: "/wp-login.php", destination: "/", permanent: true },
-      { source: "/wp-admin/:path*", destination: "/", permanent: true },
+      // Anciennes URLs WordPress : renvoyées en 410 par netlify/edge-functions/block-legacy.js
       // La langue par défaut n'a pas de préfixe public : /fr/merci/ → /merci/
       { source: `/${DEFAULT_LANG}`, destination: "/", permanent: true },
       { source: `/${DEFAULT_LANG}/:path+`, destination: "/:path+/", permanent: true },

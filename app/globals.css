@@ -347,8 +347,7 @@ textarea {
   border-bottom: 1px solid transparent;
 }
 
-.site-header.is-scrolled,
-.site-header.is-open {
+.site-header.is-scrolled {
   background: rgba(13, 14, 17, 0.86);
   border-bottom-color: var(--line-dark);
   -webkit-backdrop-filter: saturate(140%) blur(18px);
@@ -548,22 +547,67 @@ textarea {
   top: 25px;
 }
 
-.site-header.is-open .burger span:first-child {
+/* Bouton de fermeture du menu : le burger devient une croix à l'ouverture */
+.burger.is-close span:first-child {
   top: 21px;
   transform: rotate(45deg);
 }
 
-.site-header.is-open .burger span:last-child {
+.burger.is-close span:last-child {
   top: 21px;
   transform: rotate(-45deg);
 }
 
-/* Menu mobile plein écran : il recouvre toute la page, qui ne défile plus derrière */
-.site-header.is-open {
-  bottom: 0;
+@starting-style {
+  .menu-dialog[open] .burger.is-close span:first-child {
+    top: 17px;
+    transform: none;
+  }
+
+  .menu-dialog[open] .burger.is-close span:last-child {
+    top: 25px;
+    transform: none;
+  }
+}
+
+/* Menu mobile plein écran en <dialog> modal : il recouvre toute la page, qui ne défile plus derrière */
+.menu-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--ink);
+  color: var(--on-dark);
+  opacity: 0;
+  transition:
+    opacity 0.35s var(--ease),
+    overlay 0.35s allow-discrete,
+    display 0.35s allow-discrete;
+}
+
+.menu-dialog[open] {
   display: flex;
   flex-direction: column;
-  background: var(--ink);
+  opacity: 1;
+}
+
+@starting-style {
+  .menu-dialog[open] {
+    opacity: 0;
+  }
+}
+
+.menu-dialog::backdrop {
+  background: transparent;
+}
+
+.menu-dialog .site-header__bar {
+  flex: none;
 }
 
 html.menu-open,
@@ -576,17 +620,19 @@ html.menu-open .wa-fab {
 }
 
 @media (min-width: 1024px) {
-  .site-header.is-open {
-    bottom: auto;
-  }
-
-  .mobile-menu {
+  .menu-dialog[open] {
     display: none;
   }
 
   html.menu-open,
   html.menu-open body {
     overflow: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-dialog {
+    transition: none;
   }
 }
 
@@ -1186,10 +1232,43 @@ html.menu-open .wa-fab {
 
 /* ---------- Flotte ---------- */
 
+/* Une ligne par véhicule : photo d'un côté, texte de l'autre, côtés alternés */
 .fleet {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
+  max-width: 1080px;
+  margin-inline: auto;
+}
+
+@media (min-width: 901px) {
+  .fleet .car {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .fleet .car:nth-child(even) .car__stage {
+    order: 2;
+  }
+
+  .fleet .car__stage {
+    height: 100%;
+    min-height: 320px;
+    aspect-ratio: auto;
+  }
+
+  .fleet .car__body {
+    padding: 40px 56px 40px 24px;
+  }
+
+  .fleet .car:nth-child(even) .car__body {
+    padding: 40px 24px 40px 56px;
+  }
+
+  .fleet .car__book {
+    align-self: flex-start;
+  }
 }
 
 .car {
@@ -1257,6 +1336,18 @@ html.menu-open .wa-fab {
   line-height: 1.1;
 }
 
+/* « ou équivalent » : même ligne que le modèle quand la place le permet, sinon à la ligne, jamais coupé */
+.car__equiv {
+  display: inline-block;
+  margin-inline-start: 4px;
+  color: var(--text-2);
+  font-family: var(--font-sans-stack);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
 .car__specs {
   display: flex;
   gap: 24px;
@@ -1285,36 +1376,56 @@ html.menu-open .wa-fab {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: clamp(48px, 8vw, 112px);
-  align-items: center;
+  align-items: stretch;
 }
 
+/* La photo prend toute la hauteur de la colonne de texte (recadrée, sans déformation) */
 .onboard__photo {
-  aspect-ratio: 3 / 2;
+  min-height: 320px;
 }
 
+.onboard__copy {
+  align-self: center;
+}
+
+/* Équipements en grille 2 × 2 de tuiles alignées : la colonne de texte reste à la hauteur de la photo */
 .amenities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
   margin-top: 36px;
-  border-top: 1px solid var(--line);
 }
 
 .amenities li {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--line);
-  font-size: 17px;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--mist);
+  font-size: 15.5px;
   font-weight: 500;
+  line-height: 1.35;
 }
 
 .amenities__icon {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   flex: none;
   border-radius: 50%;
-  background: var(--mist);
+  background: var(--paper);
+}
+
+/* Petit écran : icône au-dessus du libellé, les tuiles restent sur deux colonnes */
+@media (max-width: 520px) {
+  .amenities li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
 }
 
 /* ---------- Avis ---------- */
@@ -1432,16 +1543,20 @@ html.menu-open .wa-fab {
   background: var(--paper);
 }
 
+/* Villes centrées : chaque nom au milieu de sa case, et la dernière ligne incomplète centrée dans le bloc */
 .zones__places .cities {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 0 24px;
   margin-block: -14px;
 }
 
 .zones__places .cities li {
   display: flex;
+  flex: 0 1 240px;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 14px 0;
   border: 0;
@@ -1674,33 +1789,76 @@ html.menu-open .wa-fab {
 }
 
 .legal section + section {
-  margin-top: 64px;
+  margin-top: 56px;
+}
+
+/* Modèle commun : introduction en italique séparée par un filet, puis rubriques à icône */
+.legal__intro {
+  margin-bottom: 56px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+  font-style: italic;
+}
+
+.legal__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.legal__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--mist);
+  color: var(--ink);
+}
+
+.legal__icon .icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Le texte s'aligne sous le titre, pas sous la pastille */
+.legal__body {
+  padding-left: 62px;
+}
+
+.legal__body > * + * {
+  margin-top: 16px;
+}
+
+.legal__body > h3 {
+  margin-top: 32px;
+}
+
+.page-hero__subtitle {
+  max-width: 40em;
+  margin: 18px auto 0;
+  color: var(--on-dark-2);
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 .page-hero .container {
   text-align: center;
 }
 
-.legal section > * + * {
-  margin-top: 16px;
-}
-
-.legal section > h3 {
-  margin-top: 36px;
-}
 
 .legal h2 {
-  margin-bottom: 24px;
-  text-align: center;
   color: var(--text);
   font-family: var(--font-serif-stack);
-  font-size: clamp(1.9rem, 1.6rem + 0.9vw, 2.4rem);
+  font-size: clamp(1.6rem, 1.4rem + 0.6vw, 2rem);
   font-weight: 400;
   line-height: 1.15;
 }
 
 .legal h3 {
-  margin: 40px 0 16px;
+  margin-bottom: 0;
   color: var(--text);
   font-size: 18px;
   font-weight: 600;
@@ -2123,6 +2281,26 @@ html.menu-open .wa-fab {
   line-height: 1.5;
 }
 
+.quote-form__privacy {
+  margin: 16px 0 0;
+  color: var(--text-3);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.quote-form__privacy a {
+  color: var(--text-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.25s;
+}
+
+.quote-form__privacy a:hover {
+  color: var(--text);
+}
+
 .quote-form__error a {
   font-weight: 600;
   text-decoration: underline;
@@ -2373,6 +2551,8 @@ html.menu-open .wa-fab {
 
   .onboard__photo {
     order: 2;
+    min-height: 0;
+    aspect-ratio: 3 / 2;
   }
 
   .services {
@@ -2407,8 +2587,8 @@ html.menu-open .wa-fab {
     width: 118px;
   }
 
-  .zones__places .cities {
-    grid-template-columns: minmax(0, 1fr);
+  .zones__places .cities li {
+    flex-basis: 100%;
   }
 
   .site-header__actions {
@@ -2440,8 +2620,18 @@ html.menu-open .wa-fab {
     top: 24px;
   }
 
-  .site-header.is-open .burger span {
+  .burger.is-close span {
     top: 20px;
+  }
+
+  @starting-style {
+    .menu-dialog[open] .burger.is-close span:first-child {
+      top: 16px;
+    }
+
+    .menu-dialog[open] .burger.is-close span:last-child {
+      top: 24px;
+    }
   }
 
   .hero {
@@ -2509,6 +2699,11 @@ html.menu-open .wa-fab {
   .legal__facts div {
     grid-template-columns: minmax(0, 1fr);
     gap: 2px;
+  }
+
+  /* Mobile : le texte reprend toute la largeur sous la pastille */
+  .legal__body {
+    padding-left: 0;
   }
 }
 
