@@ -57,3 +57,9 @@ Les pages, le sitemap, les hreflang, le sélecteur de langue et la réécriture 
 - Aperçu des liens partagés (Open Graph et X) : `public/images/og-fr.jpg` et `og-en.jpg` (1200×630).
 - `app/sitemap.ts` (avec hreflang), `app/robots.ts`, `app/manifest.ts`.
 - Pages de remerciement en `noindex` (non bloquées dans robots.txt, pour que Google lise la consigne).
+
+## Suggestions d'adresses (Google Places)
+
+Variable Netlify : `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` (lue au build : redéployer après l'avoir ajoutée).
+Clé Google Cloud avec « Maps JavaScript API » et « Places API (New) » activées, restreinte aux référents HTTP du site.
+Sans clé, ou si elle est refusée, les champs adresse restent en saisie libre, sans message.

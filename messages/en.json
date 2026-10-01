@@ -35,8 +35,8 @@
     "quote": "Free quote"
   },
   "hero": {
-    "rating": "We are rated 4.8/5 on Google",
-    "title": "Your private chauffeur available 24/7",
+    "rating": "4.8/5",
+    "title": "Your private chauffeur available 24/7 in Toulouse",
     "lead": "For all your personal or professional trips in Toulouse and its surroundings",
     "perks": [
       "Punctuality",
@@ -165,7 +165,7 @@
   "reviews": {
     "eyebrow": "Our customers are happy and they let us know it.",
     "title": "Our customers' opinions",
-    "rating": "Driver Line is rated 4.8/5 on Google",
+    "rating": "4.8/5",
     "starsLabel": "Rated 5 out of 5",
     "source": "Google review",
     "items": [

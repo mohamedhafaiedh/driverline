@@ -778,16 +778,12 @@ html.menu-open .wa-fab {
 .stars {
   display: inline-flex;
   gap: 2px;
-  color: currentColor;
+  color: #fbbc04; /* jaune des étoiles Google, partout */
 }
 
 .stars svg {
   width: 14px;
   height: 14px;
-}
-
-.rating-chip .stars {
-  color: var(--on-dark);
 }
 
 .hero__lead {
@@ -921,6 +917,68 @@ html.menu-open .wa-fab {
 
 .field__control {
   position: relative;
+}
+
+/* Suggestions d'adresses Google, sous le champ */
+.suggest {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  padding: 6px;
+  border: 1px solid #e4e4e7;
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  box-shadow: 0 24px 48px -20px rgba(13, 14, 17, 0.35);
+}
+
+.suggest__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.suggest__item[aria-selected="true"] {
+  background: var(--mist);
+}
+
+.suggest__icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  margin-top: 1px;
+  color: var(--text-3);
+}
+
+.suggest__text {
+  display: grid;
+  min-width: 0;
+}
+
+.suggest__main {
+  font-weight: 500;
+}
+
+.suggest__secondary {
+  overflow: hidden;
+  color: var(--text-2);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.suggest__attribution {
+  padding: 6px 12px 2px;
+  color: var(--text-3);
+  font-size: 11px;
+  text-align: right;
 }
 
 .field__control > .icon {
@@ -1439,10 +1497,6 @@ html.menu-open .wa-fab {
   border-radius: 999px;
   color: var(--on-dark-2);
   font-size: 14px;
-}
-
-.score .stars {
-  color: var(--on-dark);
 }
 
 .reviews {
@@ -2193,10 +2247,6 @@ html.menu-open .wa-fab {
   margin-bottom: 28px;
 }
 
-.review__top .stars {
-  color: var(--on-dark);
-}
-
 .review__source {
   display: inline-flex;
   align-items: center;
@@ -2549,9 +2599,23 @@ html.menu-open .wa-fab {
     max-width: 620px;
   }
 
+  /* iPhone (Safari et Chrome, tous deux sur WebKit) : la photo ne doit dépendre ni de l'étirement
+     de la grille ni d'une hauteur en % ; c'est l'image elle-même qui porte le ratio 3:2 sur toute la largeur */
   .onboard__photo {
     order: 2;
+    display: block;
+    width: 100%;
+    max-width: 620px;
     min-height: 0;
+    height: auto;
+    align-self: start;
+    justify-self: stretch;
+  }
+
+  .onboard__photo img {
+    display: block;
+    width: 100%;
+    height: auto;
     aspect-ratio: 3 / 2;
   }
 
@@ -2587,8 +2651,21 @@ html.menu-open .wa-fab {
     width: 118px;
   }
 
+  /* Une colonne centrée dans le bloc, villes et icônes alignées à gauche sur la même verticale */
+  .zones__places .cities {
+    display: grid;
+    grid-template-columns: minmax(0, max-content);
+    justify-content: center;
+  }
+
   .zones__places .cities li {
-    flex-basis: 100%;
+    justify-content: flex-start;
+    min-width: 220px;
+  }
+
+  /* Pas de trait sous la dernière ville : même espace en haut et en bas du bloc */
+  .zones__places .cities li:last-child {
+    border-bottom: 0;
   }
 
   .site-header__actions {
@@ -2639,6 +2716,7 @@ html.menu-open .wa-fab {
   }
 
   .hero__perks {
+    justify-content: center;
     gap: 12px 18px;
     margin-top: 36px;
     padding-top: 24px;

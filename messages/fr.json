@@ -35,8 +35,8 @@
     "quote": "Devis gratuit"
   },
   "hero": {
-    "rating": "Nous sommes notés 4.8/5 sur Google",
-    "title": "Votre chauffeur privé disponible 24/7",
+    "rating": "4,8/5",
+    "title": "Votre chauffeur privé disponible 24/7 à Toulouse",
     "lead": "Pour tous vos déplacements personnels ou professionnels à Toulouse et son agglomération.",
     "perks": [
       "Ponctualité",
@@ -165,7 +165,7 @@
   "reviews": {
     "eyebrow": "Nos clients sont heureux et ils nous le font savoir",
     "title": "Les avis de nos clients",
-    "rating": "Driver Line est notée 4.8/5 sur Google",
+    "rating": "4,8/5",
     "starsLabel": "Noté 5 sur 5",
     "source": "Avis Google",
     "items": [

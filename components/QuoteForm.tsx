@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import AddressInput from "@/components/AddressInput";
 import Icon, { type IconName } from "@/components/Icon";
 import { getMessages } from "@/lib/i18n";
 import { DEFAULT_LANG, pagePath, type Lang } from "@/lib/seo";
@@ -137,7 +138,16 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
       >
         <div className="field__control">
           <Icon name={icon} />
-          {name === "message" ? (
+          {name === "adresse_depart" || name === "adresse_arrivee" ? (
+            <AddressInput
+              id={id}
+              name={name}
+              value={data[name]}
+              lang={lang}
+              onValue={(value) => setData((prev) => ({ ...prev, [name]: value }))}
+              {...props}
+            />
+          ) : name === "message" ? (
             <textarea id={id} name={name} rows={3} value={data[name]} onChange={onChange} {...props} />
           ) : (
             <input
@@ -220,7 +230,7 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
       )}
 
       <div className="quote-form__grid">
-        {field("adresse_depart", `${t.pickup} *`, "pin", 1, { type: "text", required: true, placeholder: t.pickupPlaceholder, autoComplete: "street-address" })}
+        {field("adresse_depart", `${t.pickup} *`, "pin", 1, { type: "text", required: true, placeholder: t.pickupPlaceholder })}
         {field("adresse_arrivee", `${t.dropoff} *`, "navigation", 1, { type: "text", required: true, placeholder: t.dropoffPlaceholder })}
         {field("date", `${t.date} *`, "calendar", 1, { type: "date", required: true, onFocus: (e: React.FocusEvent<HTMLInputElement>) => setMinToday(e.currentTarget) }, false)}
         {field("heure", `${t.time} *`, "clock", 1, { type: "time", required: true, step: 900 }, false)}
